@@ -65,7 +65,8 @@ BuildRequires: OpenEXR-devel
 BuildRequires: libtiff-progs
 BuildRequires: gphoto2-devel
 BuildRequires: fontconfig-devel
-BuildRequires: libpoppler-qt4-devel
+#Disable it for the moment okular use svn poppler version
+#BuildRequires: libpoppler-qt4-devel
 # necessary for displaying info into konqueror pdfinfo
 BuildRequires:	xpdf
 BuildRequires: 	mesaglut-devel
@@ -85,6 +86,7 @@ Requires: %name-kpovmodeler = %epoch:%version-%release
 Requires: %name-kruler = %epoch:%version-%release    
 Requires: %name-mrmlsearch = %epoch:%version-%release    
 Requires: %name-kview = %epoch:%version-%release    
+Requires: %name-okular = %epoch:%version-%release
 
 %description
 Graphical tools for the K Desktop Environment.
@@ -129,14 +131,12 @@ Common files for kdegraphics
 %defattr(-,root,root)
 %_libdir/kde4/kio_kamera.*
 %_libdir/kde4/kcm_kamera.*
-%_datadir/services/kamera.desktop
-%_libdir/kde4/kfile_*
-%_iconsdir/*/*/actions/*
+%_datadir/kde4/services/kamera.desktop
 %_iconsdir/*/*/devices/*
 %_iconsdir/*/*/apps/camera*
-%_datadir/services/kfile_*
-%_datadir/services/scanservice.desktop
-%_datadir/services/camera.protocol
+%_datadir/kde4/services/kfile_*
+%_datadir/kde4/services/scanservice.desktop
+%_datadir/kde4/services/camera.protocol
 %_iconsdir/crystalsvg/22x22/places/camera.png
 %_iconsdir/crystalsvg/32x32/places/camera.png
 
@@ -147,6 +147,15 @@ Common files for kdegraphics
 %doc %_docdir/HTML/en/kamera/*.bz2
 %doc %_docdir/HTML/en/kamera/*.docbook
 
+%_iconsdir/crystalsvg/16x16/actions/camera_test.png
+%_iconsdir/crystalsvg/16x16/actions/palette_color.png
+%_iconsdir/crystalsvg/16x16/actions/palette_gray.png
+%_iconsdir/crystalsvg/16x16/actions/palette_halftone.png
+%_iconsdir/crystalsvg/16x16/actions/palette_lineart.png
+
+%_datadir/kde4/services/kfilewrite_jpeg.desktop
+
+%_datadir/kde4/services/msits.protocol
 
 #----------------------------------------------------------------------
 
@@ -165,6 +174,13 @@ Libraries files for kdegraphics
 %_datadir/dbus-1/interfaces/org.kde.kpovmodeler.xml
 %_datadir/dbus-1/interfaces/org.kde.ksnapshot.xml
 %_datadir/dbus-1/interfaces/org.kde.ligature.MultiPage.xml
+
+%_libdir/strigi/strigiea_jpeg.so
+%_libdir/strigi/strigiea_ps.so
+%_libdir/strigi/strigita_dvi.so
+%_libdir/strigi/strigita_ico.so
+%_libdir/kde4/kfilewrite_jpeg.so
+%_libdir/kde4/kio_msits.so
 
 #----------------------------------------------------------------------
 
@@ -329,7 +345,7 @@ A program to display raw and tiffed fax images (g3, g3-2d, g4).
 %files kfax
 %defattr(-,root,root)
 %_datadir/config.kcfg/djvumultipage.kcfg
-%_datadir/services/djvumultipage.desktop
+%_datadir/kde4/services/djvumultipage.desktop
 %_bindir/kfax        
 %_datadir/applications/kde4/kfax.desktop           
 %dir %_datadir/apps/kfax/
@@ -392,10 +408,10 @@ A program (and embeddable KPart) to display *.PDF and *.PS
 %_datadir/config.kcfg/kghostview.kcfg
 %_bindir/kghostview  
 %_datadir/applications/kde4/kghostview.desktop   
-%_datadir/services/kghostview_part.desktop
+%_datadir/kde4/services/kghostview_part.desktop
 %dir %_datadir/apps/kghostview/
 %_libdir/kde4/gsthumbnail.*
-%_datadir/services/gsthumbnail.desktop
+%_datadir/kde4/services/gsthumbnail.desktop
 %_datadir/apps/kghostview/kgv_part.rc
 %_datadir/apps/kghostview/pdf_sec.ps
 %_datadir/apps/kconf_update/update-to-xt-names.pl
@@ -467,6 +483,102 @@ window), so it's a simple way of of making snapshots.
 
 #----------------------------------------------------------------------
 
+%package okular
+Summary:    Okular package
+Group:      Graphical desktop/KDE
+Provides:       okular
+Requires:       %lib_name-okular = %epoch:%version-%release
+
+%description okular
+Okular
+
+%post okular
+%{update_desktop_database}
+%update_icon_cache hicolor
+
+%postun okular
+%{clean_desktop_database}
+%clean_icon_cache hicolor
+
+%files okular
+%defattr(-,root,root)
+%_bindir/okular
+%_datadir/kde4/services/okularChm.desktop
+%_datadir/kde4/services/okularComicbook.desktop
+%_datadir/kde4/services/okularDjvu.desktop
+%_datadir/kde4/services/okularDvi.desktop
+%_datadir/kde4/services/okularFb.desktop
+%_datadir/kde4/services/okularKimgio.desktop
+%_datadir/kde4/services/okularOoo.desktop
+%_datadir/kde4/services/okularPlucker.desktop
+%_datadir/kde4/services/okularTiff.desktop
+%_datadir/kde4/services/okularXps.desktop
+%_datadir/kde4/services/okular_part.desktop
+
+%_datadir/kde4/servicetypes/okularGenerator.desktop
+%_datadir/applications/kde4/okular.desktop
+%_datadir/applications/kde4/okularApplication_*.desktop
+
+%_datadir/apps/okular/pics/*.png
+%_datadir/apps/okular/shell.rc
+%_datadir/apps/okular/tools.xml
+%_datadir/apps/okularpart/part.rc
+%_datadir/config.kcfg/okular.kcfg
+%doc %_docdir/HTML/en/okular/*.png
+%doc %_docdir/HTML/en/okular/*.bz2
+%doc %_docdir/HTML/en/okular/*.docbook
+
+%_iconsdir/hicolor/128x128/apps/okular.png
+%_iconsdir/hicolor/16x16/apps/okular.png
+%_iconsdir/hicolor/22x22/apps/okular.png
+%_iconsdir/hicolor/32x32/apps/okular.png
+%_iconsdir/hicolor/48x48/apps/okular.png
+%_iconsdir/hicolor/64x64/apps/okular.png
+%_iconsdir/hicolor/scalable/apps/okular.svgz
+
+%_datadir/kde4/services/libokularGenerator_*.desktop
+
+%package -n %lib_name-okular
+Summary:    Library for okular package
+Group:      Graphical desktop/KDE
+
+%description -n %lib_name-okular
+Library for okular.
+
+%post -n %lib_name-okular -p /sbin/ldconfig
+%postun -n %lib_name-okular -p /sbin/ldconfig
+
+%files -n %lib_name-okular
+%defattr(-,root,root)
+%_libdir/kde4/libokularGenerator_chmlib.so
+%_libdir/kde4/libokularGenerator_comicbook.so
+%_libdir/kde4/libokularGenerator_djvu.so
+%_libdir/kde4/libokularGenerator_dvi.so
+%_libdir/kde4/libokularGenerator_fb.so
+%_libdir/kde4/libokularGenerator_kimgio.so
+%_libdir/kde4/libokularGenerator_ooo.so
+%_libdir/kde4/libokularGenerator_plucker.so
+%_libdir/kde4/libokularGenerator_tiff.so
+%_libdir/kde4/libokularGenerator_xps.so
+%_libdir/kde4/libokularpart.so
+
+%package -n %lib_name-okular-devel
+Summary:    Devel for okular package
+Group:      Development/KDE and Qt
+Requires:       %lib_name-okular = %epoch:%version-%release
+
+%description -n %lib_name-okular-devel
+Devel for okular.
+
+%files -n %lib_name-okular-devel
+%defattr(-,root,root)
+%dir %_includedir/okular/core/
+%_includedir/okular/core/*.h
+%dir %_includedir/okular/interfaces/
+%_includedir/okular/interfaces/*.h
+
+%_libdir/libokularcore.so
+#----------------------------------------------------------------------
 
 %package kpovmodeler
 Summary:    Kpovmodeler package
@@ -595,14 +707,14 @@ Kview is a  picture viewer, provided as standalone program and embeddable KPart
 %_datadir/icons/crystalsvg/16x16/apps/kviewshell.png
 %_datadir/icons/crystalsvg/32x32/apps/kviewshell.png
 %_datadir/icons/crystalsvg/48x48/apps/kviewshell.png
-%_datadir/services/kdvimultipage.desktop
-%_datadir/services/kfaxmultipage.desktop
-%_datadir/servicetypes/ligaturePluginGUI.desktop
-%_datadir/services/kvs_djvu_part.desktop
-%_datadir/services/kvs_dvi_part.desktop
-%_datadir/services/kvs_fax_part.desktop
-%_datadir/services/kvs_ps_part.desktop
-%_datadir/services/psMultipage.desktop
+%_datadir/kde4/services/kdvimultipage.desktop
+%_datadir/kde4/services/kfaxmultipage.desktop
+%_datadir/kde4/servicetypes/ligaturePluginGUI.desktop
+%_datadir/kde4/services/kvs_djvu_part.desktop
+%_datadir/kde4/services/kvs_dvi_part.desktop
+%_datadir/kde4/services/kvs_fax_part.desktop
+%_datadir/kde4/services/kvs_ps_part.desktop
+%_datadir/kde4/services/psMultipage.desktop
 %_bindir/ligature
 %_datadir/applications/kde4/ligature.desktop
 %_datadir/apps/djvumultipage.rc
