@@ -12,7 +12,7 @@
 %define _sysconfdir %_prefix/etc/
 %define _docdir %_datadir/doc/
 
-%define branch_date 20070311
+%define branch_date 20070418
 
 %define use_enable_final 0
 %{?_no_enable_final: %{expand: %%global use_enable_final 0}}
