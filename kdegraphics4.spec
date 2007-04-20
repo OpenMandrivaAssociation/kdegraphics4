@@ -69,6 +69,9 @@ BuildRequires: libpoppler-qt4-devel
 # necessary for displaying info into konqueror pdfinfo
 BuildRequires:	xpdf
 BuildRequires: 	mesaglut-devel
+BuildRequires:	libdjvulibre-devel
+BuildRequires:	chmlib-devel
+
 Requires: %name-ksnapshot = %epoch:%version-%release
 Requires: %name-common = %epoch:%version-%release
 Requires: %name-kuickshow = %epoch:%version-%release
@@ -858,6 +861,5 @@ EOF
 
 %clean
 rm -fr %buildroot
-
 
 
