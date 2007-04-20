@@ -484,6 +484,7 @@ window), so it's a simple way of of making snapshots.
 #----------------------------------------------------------------------
 
 %package okular
+#TODO provide kpdf4 and obsolete it
 Summary:    Okular package
 Group:      Graphical desktop/KDE
 Provides:       okular
