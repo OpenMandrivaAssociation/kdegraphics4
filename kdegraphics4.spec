@@ -134,7 +134,6 @@ Common files for kdegraphics
 %_datadir/kde4/services/kamera.desktop
 %_iconsdir/*/*/devices/*
 %_iconsdir/*/*/apps/camera*
-%_datadir/kde4/services/kfile_*
 %_datadir/kde4/services/scanservice.desktop
 %_datadir/kde4/services/camera.protocol
 %_iconsdir/crystalsvg/22x22/places/camera.png
@@ -563,6 +562,9 @@ Library for okular.
 %_libdir/kde4/libokularGenerator_xps.so
 %_libdir/kde4/libokularpart.so
 
+%_libdir/libokularcore.so.*
+
+
 %package -n %lib_name-okular-devel
 Summary:    Devel for okular package
 Group:      Development/KDE and Qt
@@ -974,5 +976,4 @@ EOF
 
 %clean
 rm -fr %buildroot
-
 
