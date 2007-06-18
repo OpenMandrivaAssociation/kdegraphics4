@@ -51,6 +51,7 @@ BuildRequires: mesaglut-devel
 BuildRequires: libdjvulibre-devel
 BuildRequires: chmlib-devel
 BuildRequires: libgs-devel
+BuildRequires: libexiv-devel
 Requires: %name-core
 Requires: kde4-ksnapshot
 Requires: kde4-kfax
