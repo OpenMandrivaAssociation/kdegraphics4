@@ -1,4 +1,4 @@
-%define revision 676706
+%define revision 680312
 
 %define use_enable_pie 1
 %{?_no_enable_pie: %{expand: %%global use_enable_pie 0}}
@@ -66,17 +66,12 @@ Requires: kde4-kruler
 Graphical tools for the K Desktop Environment.
 kdegraphics is a collection of graphic oriented applications:
 
-	- kcoloredit: contains two programs: a color value editor and also 
-			a color picker
 	- kfax: a program to display raw and tiffed fax images (g3, g3-2d, g4)
 	- kghostview: program (and embeddable KPart) to display *.PDF and *.PS
-	- kiconedit: an icon editor
 	- kruler: a ruler in inch, centimeter and pixel to check distances 
 	 		  on the screen
 	- ksnapshot: make snapshots of the screen contents
-	- kuickshow: fast and comfortable imageviewer
-	- kview: picture viewer, provided as standalone program and embeddable KPart
-	- kviewshell: generic framework for viewer applications
+	- gwenview: fast and comfortable imageviewer
 
 %files
 %defattr(-,root,root,-)
@@ -90,6 +85,18 @@ Group: Graphical desktop/KDE
 Requires: kdelibs4-core
 Requires: libgphoto-hotplug
 Obsoletes: kdegraphics4-common
+Obsoletes: kdegraphics4-kview
+Obsoletes: kdegraphics4-kiconedit
+Obsoletes: kdegraphics4-kpovmodeler
+Obsoletes: kdegraphics4-ksvg
+Obsoletes: kdegraphics4-kooka
+Obsoletes: kdegraphics4-mrmlsearch
+Obsoletes: kdegraphics4-kcoloredit
+Obsoletes: %{_lib}kdegraphics40-kview
+Obsoletes: %{_lib}kdegraphics40-kpovmodeler
+Obsoletes: %{_lib}kdegraphics40-ksvg
+Obsoletes: %{_lib}kdegraphics40-kooka
+Obsoletes: %{_lib}kdegraphics40-common
 
 %description core
 Common files for kdegraphics
@@ -97,10 +104,8 @@ Common files for kdegraphics
 %files core
 %defattr(-,root,root)
 %_kde_libdir/kde4/gsthumbnail.so
-%_kde_libdir/kde4/kfilewrite_jpeg.so
 %_kde_libdir/strigi/*
 %_kde_datadir/kde4/services/gsthumbnail.desktop
-%_kde_datadir/kde4/services/kfilewrite_jpeg.desktop
 %_kde_datadir/doc/HTML/en/kgamma
 
 #------------------------------------------------	
@@ -110,6 +115,7 @@ Common files for kdegraphics
 %package -n %libokularcore
 Summary: KDE 4 core library
 Group: System/Libraries
+Obsoletes: %{_lib}kdegraphics40-okular
 
 %description -n %libokularcore
 KDE 4 core library.
@@ -147,6 +153,8 @@ Summary: Dialog KDE base widgets
 Group: Graphical desktop/KDE
 Requires: %name-core = %epoch:%version
 Obsoletes: %name-okular
+Obsoletes: kdegraphics4-kpdf
+Obsoletes: kdegraphics4-kdvi
 
 %description -n kde4-okular
 Dialog KDE base widgets
@@ -248,6 +256,7 @@ Dialog KDE base widgets
 %package -n %libkghostviewlib
 Summary: KDE 4 core library
 Group: System/Libraries
+Obsoletes: %{_lib}kdegraphics40-kghostview
 
 %description -n %libkghostviewlib
 KDE 4 core library.
@@ -370,6 +379,13 @@ Requires: kdelibs4-devel
 Requires: %libkscan
 Requires: %libokularcore
 Requires: %libgwenviewlib
+Obsoletes: %{_lib}kdegraphics40-ksvg-devel
+Obsoletes: %{_lib}kdegraphics40-kview-devel
+Obsoletes: %{_lib}kdegraphics40-kooka-devel
+Obsoletes: %{_lib}kdegraphics40-kpovmodeler-devel
+Obsoletes: %{_lib}kdegraphics40-common-devel
+Obsoletes: %{_lib}kdegraphics40-kghostview-devel
+Obsoletes: %{_lib}kdegraphics40-okular-devel
 
 %description  devel
 This package contains header files needed if you wish to build applications based on kdegraphics.
