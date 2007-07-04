@@ -1,4 +1,4 @@
-%define revision 681050
+%define revision 683148
 
 %define use_enable_pie 1
 %{?_no_enable_pie: %{expand: %%global use_enable_pie 0}}
@@ -106,7 +106,8 @@ Common files for kdegraphics
 %_kde_libdir/kde4/gsthumbnail.so
 %_kde_libdir/strigi/*
 %_kde_datadir/kde4/services/gsthumbnail.desktop
-%_kde_datadir/doc/HTML/en/kgamma
+%dir %_kde_docdir/HTML/en/kgamma
+%doc %_kde_docdir/HTML/en/kgamma/*
 
 #------------------------------------------------	
 
@@ -141,7 +142,8 @@ Dialog KDE base widgets
 %files -n kde4-kamera
 %defattr(-,root,root)
 %_kde_iconsdir/*/*/*/camera*
-%_kde_datadir/doc/HTML/en/kamera
+%dir %_kde_docdir/HTML/en/kamera
+%doc %_kde_docdir/HTML/en/kamera/*
 %_kde_libdir/kde4/*_kamera.*
 %_kde_datadir/kde4/services/camera*
 %_kde_datadir/kde4/services/kamera*
@@ -175,7 +177,8 @@ Dialog KDE base widgets
 %_kde_datadir/kde4/services/msits.protocol
 %_kde_datadir/kde4/services/okular*
 %_kde_datadir/kde4/servicetypes/okularGenerator.desktop
-%_kde_datadir/doc/HTML/en/okular
+%dir %_kde_docdir/HTML/en/okular
+%doc %_kde_docdir/HTML/en/okular/*
 
 #------------------------------------------------	
 
@@ -290,7 +293,9 @@ Dialog KDE base widgets
 %_kde_datadir/config.kcfg/kghostview.kcfg
 %_kde_iconsdir/*/*/*/kghostview*
 %_kde_datadir/kde4/services/kghostview_part.desktop
-%_kde_datadir/doc/HTML/en/kghostview
+
+%dir %_kde_docdir/HTML/en/kghostview
+%doc %_kde_docdir/HTML/en/kghostview/*
 
 #-----------------------------------------------------------------------------
 
@@ -308,7 +313,9 @@ Dialog KDE base widgets
 %_kde_bindir/kolourpaint
 %_kde_datadir/applications/kde4/kolourpaint.desktop
 %_kde_appsdir/kolourpaint
-%_kde_datadir/doc/HTML/en/kolourpaint
+
+%dir %_kde_docdir/HTML/en/kolourpaint
+%doc %_kde_docdir/HTML/en/kolourpaint/*
 
 #-----------------------------------------------------------------------------
 
@@ -327,7 +334,9 @@ Dialog KDE base widgets
 %_kde_datadir/applications/kde4/kruler.desktop
 %_kde_appsdir/kruler
 %_kde_iconsdir/*/*/*/kruler*
-%_kde_datadir/doc/HTML/en/kruler
+
+%dir %_kde_docdir/HTML/en/kruler
+%doc %_kde_docdir/HTML/en/kruler/*
 
 #-----------------------------------------------------------------------------
 
@@ -347,7 +356,9 @@ Dialog KDE base widgets
 %_kde_datadir/applications/kde4/ksnapshot.desktop
 %_kde_iconsdir/*/*/*/ksnapshot*
 %_datadir/dbus-1/interfaces/org.kde.ksnapshot.xml
-%_kde_datadir/doc/HTML/en/ksnapshot
+
+%dir %_kde_docdir/HTML/en/ksnapshot
+%doc %_kde_docdir/HTML/en/ksnapshot/*
 
 #-----------------------------------------------------------------------------
 
