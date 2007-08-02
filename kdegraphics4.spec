@@ -1,4 +1,4 @@
-%define revision 683148
+%define revision 695740
 
 %define use_enable_pie 1
 %{?_no_enable_pie: %{expand: %%global use_enable_pie 0}}
@@ -18,7 +18,7 @@
 
 Name: kdegraphics4
 Summary: K Desktop Environment
-Version: 3.91
+Version: 3.92.0
 Release: %mkrel 0.%revision.1
 Epoch: 1
 Group: Graphical desktop/KDE
@@ -141,7 +141,6 @@ Dialog KDE base widgets
 
 %files -n kde4-kamera
 %defattr(-,root,root)
-%_kde_iconsdir/*/*/*/camera*
 %dir %_kde_docdir/HTML/en/kamera
 %doc %_kde_docdir/HTML/en/kamera/*
 %_kde_libdir/kde4/*_kamera.*
@@ -172,6 +171,7 @@ Dialog KDE base widgets
 %_kde_appsdir/okularpart
 %_kde_datadir/config.kcfg/gssettings.kcfg
 %_kde_datadir/config.kcfg/okular.kcfg
+%_kde_datadir/config/okular.knsrc
 %_kde_iconsdir/*/*/*/okular*
 %_kde_datadir/kde4/services/libokularGenerator_*
 %_kde_datadir/kde4/services/msits.protocol
