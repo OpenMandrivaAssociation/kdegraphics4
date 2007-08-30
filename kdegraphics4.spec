@@ -1,4 +1,4 @@
-%define revision 695740
+%define revision 706376
 
 %define use_enable_pie 1
 %{?_no_enable_pie: %{expand: %%global use_enable_pie 0}}
@@ -48,13 +48,13 @@ BuildRequires: gphoto2-devel
 BuildRequires: fontconfig-devel
 BuildRequires: libpoppler-qt4-devel
 BuildRequires: mesaglut-devel
-BuildRequires: libdjvulibre-devel
-BuildRequires: chmlib-devel
+BuildRequires: djvulibre-devel
+BuildRequires: kchm-devel
 BuildRequires: libgs-devel
 BuildRequires: libexiv-devel
 Requires: %name-core
 Requires: kde4-ksnapshot
-Requires: kde4-kfax
+Obsoletes: kde4-kfax
 Requires: kde4-kghostview
 Requires: kde4-kcolorchooser
 Requires: kde4-okular
@@ -64,14 +64,7 @@ Requires: kde4-kruler
 
 %description
 Graphical tools for the K Desktop Environment.
-kdegraphics is a collection of graphic oriented applications:
-
-	- kfax: a program to display raw and tiffed fax images (g3, g3-2d, g4)
-	- kghostview: program (and embeddable KPart) to display *.PDF and *.PS
-	- kruler: a ruler in inch, centimeter and pixel to check distances 
-	 		  on the screen
-	- ksnapshot: make snapshots of the screen contents
-	- gwenview: fast and comfortable imageviewer
+kdegraphics is a collection of graphic oriented applications
 
 %files
 %defattr(-,root,root,-)
@@ -106,8 +99,6 @@ Common files for kdegraphics
 %_kde_libdir/kde4/gsthumbnail.so
 %_kde_libdir/strigi/*
 %_kde_datadir/kde4/services/gsthumbnail.desktop
-%dir %_kde_docdir/HTML/en/kgamma
-%doc %_kde_docdir/HTML/en/kgamma/*
 
 #------------------------------------------------	
 
@@ -163,7 +154,6 @@ Dialog KDE base widgets
 %files -n kde4-okular
 %defattr(-,root,root)
 %_kde_bindir/okular
-%_kde_libdir/kde4/kio_msits.so
 %_kde_libdir/kde4/libokularGenerator_*
 %_kde_libdir/kde4/libokularpart.so
 %_kde_datadir/applications/kde4/okular*
@@ -174,7 +164,6 @@ Dialog KDE base widgets
 %_kde_datadir/config/okular.knsrc
 %_kde_iconsdir/*/*/*/okular*
 %_kde_datadir/kde4/services/libokularGenerator_*
-%_kde_datadir/kde4/services/msits.protocol
 %_kde_datadir/kde4/services/okular*
 %_kde_datadir/kde4/servicetypes/okularGenerator.desktop
 %dir %_kde_docdir/HTML/en/okular
@@ -236,24 +225,6 @@ Dialog KDE base widgets
 
 #-----------------------------------------------------------------------------
 
-%package -n kde4-kfax
-Summary: Dialog KDE base widgets
-Group: Graphical desktop/KDE
-Requires: %name-core = %epoch:%version
-Obsoletes: kdegraphics4-kfax
-
-%description -n kde4-kfax
-Dialog KDE base widgets
-
-%files -n kde4-kfax
-%defattr(-,root,root)
-%_kde_bindir/kfax
-%_kde_datadir/applications/kde4/kfax.desktop
-%_kde_appsdir/kfax
-%_kde_iconsdir/*/*/*/kfax*
-
-#------------------------------------------------	
-
 %define libkghostviewlib %mklibname kghostviewlib 1
 
 %package -n %libkghostviewlib
@@ -296,6 +267,25 @@ Dialog KDE base widgets
 
 %dir %_kde_docdir/HTML/en/kghostview
 %doc %_kde_docdir/HTML/en/kghostview/*
+
+#-----------------------------------------------------------------------------
+
+%define libkolourpaint_lgpl %mklibname kolourpaint_lgpl 4
+
+%package -n %libkolourpaint_lgpl
+Summary: KDE 4 core library
+Group: System/Libraries
+Obsoletes: %{_lib}kdegraphics40-kghostview
+
+%description -n %libkolourpaint_lgpl
+KDE 4 core library.
+
+%post -n %libkolourpaint_lgpl -p /sbin/ldconfig
+%postun -n %libkolourpaint_lgpl -p /sbin/ldconfig
+
+%files -n %libkolourpaint_lgpl
+%defattr(-,root,root)
+%_kde_libdir/libkolourpaint_lgpl.so.*
 
 #-----------------------------------------------------------------------------
 
