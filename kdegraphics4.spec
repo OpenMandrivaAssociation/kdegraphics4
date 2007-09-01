@@ -9,7 +9,7 @@
 %define unstable 1
 %{?_unstable: %{expand: %%global unstable 1}}
 
-%define branch 1
+%define branch 0
 %{?_branch: %{expand: %%global branch 1}}
 
 %if %unstable
@@ -18,8 +18,8 @@
 
 Name: kdegraphics4
 Summary: K Desktop Environment
-Version: 3.92.0
-Release: %mkrel 0.%revision.1
+Version: 3.93.0
+Release: %mkrel 1
 Epoch: 1
 Group: Graphical desktop/KDE
 License: GPL
@@ -49,7 +49,7 @@ BuildRequires: fontconfig-devel
 BuildRequires: libpoppler-qt4-devel
 BuildRequires: mesaglut-devel
 BuildRequires: djvulibre-devel
-BuildRequires: kchm-devel
+BuildRequires: libchm-devel
 BuildRequires: libgs-devel
 BuildRequires: libexiv-devel
 Requires: %name-core
