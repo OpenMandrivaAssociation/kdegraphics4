@@ -1,4 +1,4 @@
-%define revision 706376
+%define revision 708268
 
 %define use_enable_pie 1
 %{?_no_enable_pie: %{expand: %%global use_enable_pie 0}}
@@ -9,7 +9,7 @@
 %define unstable 1
 %{?_unstable: %{expand: %%global unstable 1}}
 
-%define branch 0
+%define branch 1
 %{?_branch: %{expand: %%global branch 1}}
 
 %if %unstable
@@ -90,6 +90,7 @@ Obsoletes: %{_lib}kdegraphics40-kpovmodeler
 Obsoletes: %{_lib}kdegraphics40-ksvg
 Obsoletes: %{_lib}kdegraphics40-kooka
 Obsoletes: %{_lib}kdegraphics40-common
+Obsoletes: %{_lib}kscan1
 
 %description core
 Common files for kdegraphics
@@ -99,6 +100,9 @@ Common files for kdegraphics
 %_kde_libdir/kde4/gsthumbnail.so
 %_kde_libdir/strigi/*
 %_kde_datadir/kde4/services/gsthumbnail.desktop
+%_kde_libdir/kde4/kscan.so
+%_kde_iconsdir/*/*/*/palette_*
+%_kde_datadir/kde4/services/scanservice.desktop
 
 #------------------------------------------------	
 
@@ -156,6 +160,7 @@ Dialog KDE base widgets
 %_kde_bindir/okular
 %_kde_libdir/kde4/libokularGenerator_*
 %_kde_libdir/kde4/libokularpart.so
+%_kde_libdir/kde4/kio_msits.so
 %_kde_datadir/applications/kde4/okular*
 %_kde_appsdir/okular
 %_kde_appsdir/okularpart
@@ -165,6 +170,7 @@ Dialog KDE base widgets
 %_kde_iconsdir/*/*/*/okular*
 %_kde_datadir/kde4/services/libokularGenerator_*
 %_kde_datadir/kde4/services/okular*
+%_kde_datadir/kde4/services/msits*
 %_kde_datadir/kde4/servicetypes/okularGenerator.desktop
 %dir %_kde_docdir/HTML/en/okular
 %doc %_kde_docdir/HTML/en/okular/*
@@ -352,32 +358,11 @@ Dialog KDE base widgets
 
 #-----------------------------------------------------------------------------
 
-%define libkscan %mklibname kscan 1
-
-%package -n %libkscan
-Summary: KDE 4 core library
-Group: System/Libraries
-
-%description -n %libkscan
-KDE 4 core library.
-
-%post -n %libkscan -p /sbin/ldconfig
-%postun -n %libkscan -p /sbin/ldconfig
-
-%files -n %libkscan
-%defattr(-,root,root)
-%_kde_libdir/libkscan.so.*
-%_kde_iconsdir/*/*/*/palette_*
-%_kde_datadir/kde4/services/scanservice.desktop
-
-#-----------------------------------------------------------------------------
-
 %package devel
 Summary: Devel stuff for kdegraphics
 Group: Development/KDE and Qt
 Requires: kde4-macros
 Requires: kdelibs4-devel
-Requires: %libkscan
 Requires: %libokularcore
 Requires: %libgwenviewlib
 Obsoletes: %{_lib}kdegraphics40-ksvg-devel
@@ -402,16 +387,7 @@ This package contains header files needed if you wish to build applications base
 %setup -q -n kdegraphics-%version
 
 %build
-%cmake_kde4 \
-%if %use_enable_final
-      -DKDE4_ENABLE_FINAL=ON \
-%endif
-%if %use_enable_pie
-      -DKDE4_ENABLE_FPIE=ON \
-%endif
-%if %unstable
-      -DCMAKE_BUILD_TYPE=debugfull
-%endif
+%cmake_kde4
 
 %make
 
