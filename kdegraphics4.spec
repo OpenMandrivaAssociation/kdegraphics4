@@ -52,6 +52,7 @@ BuildRequires: djvulibre-devel
 BuildRequires: libchm-devel
 BuildRequires: libgs-devel
 BuildRequires: libexiv-devel
+BuildRequires: qimageblitz-devel
 Requires: %name-core
 Requires: kde4-ksnapshot
 Obsoletes: kde4-kfax
