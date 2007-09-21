@@ -1,4 +1,4 @@
-%define revision 708268
+%define revision 714385
 
 %define use_enable_pie 1
 %{?_no_enable_pie: %{expand: %%global use_enable_pie 0}}
@@ -55,13 +55,13 @@ BuildRequires: libexiv-devel
 BuildRequires: qimageblitz-devel
 Requires: %name-core
 Requires: kde4-ksnapshot
-Obsoletes: kde4-kfax
+Obsoletes: kde4-kfax < 1:3.93.0-1
 Requires: kde4-kghostview
 Requires: kde4-kcolorchooser
 Requires: kde4-okular
 Requires: kde4-gwenview
-Requires: kde4-kolourpaint
 Requires: kde4-kruler
+Requires: kde4-kolourpaint
 
 %description
 Graphical tools for the K Desktop Environment.
@@ -78,20 +78,20 @@ Summary: Core files for kdegraphics
 Group: Graphical desktop/KDE	
 Requires: kdelibs4-core
 Requires: libgphoto-hotplug
-Obsoletes: kdegraphics4-common
-Obsoletes: kdegraphics4-kview
-Obsoletes: kdegraphics4-kiconedit
-Obsoletes: kdegraphics4-kpovmodeler
-Obsoletes: kdegraphics4-ksvg
-Obsoletes: kdegraphics4-kooka
-Obsoletes: kdegraphics4-mrmlsearch
-Obsoletes: kdegraphics4-kcoloredit
-Obsoletes: %{_lib}kdegraphics40-kview
-Obsoletes: %{_lib}kdegraphics40-kpovmodeler
-Obsoletes: %{_lib}kdegraphics40-ksvg
-Obsoletes: %{_lib}kdegraphics40-kooka
-Obsoletes: %{_lib}kdegraphics40-common
-Obsoletes: %{_lib}kscan1
+Obsoletes: kdegraphics4-common < 1:3.93.0-1
+Obsoletes: kdegraphics4-kview < 1:3.93.0-1
+Obsoletes: kdegraphics4-kiconedit < 1:3.93.0-1
+Obsoletes: kdegraphics4-kpovmodeler < 1:3.93.0-1
+Obsoletes: kdegraphics4-ksvg < 1:3.93.0-1
+Obsoletes: kdegraphics4-kooka < 1:3.93.0-1
+Obsoletes: kdegraphics4-mrmlsearch < 1:3.93.0-1
+Obsoletes: kdegraphics4-kcoloredit < 1:3.93.0-1
+Obsoletes: %{_lib}kdegraphics40-kview < 1:3.93.0-1
+Obsoletes: %{_lib}kdegraphics40-kpovmodeler < 1:3.93.0-1
+Obsoletes: %{_lib}kdegraphics40-ksvg < 1:3.93.0-1
+Obsoletes: %{_lib}kdegraphics40-kooka < 1:3.93.0-1
+Obsoletes: %{_lib}kdegraphics40-common < 1:3.93.0-1
+Obsoletes: %{_lib}kscan1 < 1:3.93.0-1
 
 %description core
 Common files for kdegraphics
@@ -101,7 +101,7 @@ Common files for kdegraphics
 %_kde_libdir/kde4/gsthumbnail.so
 %_kde_libdir/strigi/*
 %_kde_datadir/kde4/services/gsthumbnail.desktop
-%_kde_libdir/kde4/kscan.so
+%_kde_libdir/kde4/kscanplugin.so
 %_kde_iconsdir/*/*/*/palette_*
 %_kde_datadir/kde4/services/scanservice.desktop
 
@@ -112,7 +112,7 @@ Common files for kdegraphics
 %package -n %libokularcore
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdegraphics40-okular
+Obsoletes: %{_lib}kdegraphics40-okular < 1:3.93.0-1
 
 %description -n %libokularcore
 KDE 4 core library.
@@ -130,7 +130,7 @@ KDE 4 core library.
 Summary: kamera ioslave
 Group: Graphical desktop/KDE
 Requires: %name-core = %epoch:%version
-Obsoletes: %name-kamera
+Obsoletes: %name-kamera < 1:3.93.0-1
 
 %description -n kde4-kamera
 Dialog KDE base widgets
@@ -149,9 +149,9 @@ Dialog KDE base widgets
 Summary: Dialog KDE base widgets
 Group: Graphical desktop/KDE
 Requires: %name-core = %epoch:%version
-Obsoletes: %name-okular
-Obsoletes: kdegraphics4-kpdf
-Obsoletes: kdegraphics4-kdvi
+Obsoletes: %name-okular < 1:3.93.0-1
+Obsoletes: kdegraphics4-kpdf < 1:3.93.0-1
+Obsoletes: kdegraphics4-kdvi < 1:3.93.0-1
 
 %description -n kde4-okular
 Dialog KDE base widgets
@@ -200,7 +200,7 @@ KDE 4 core library.
 Summary: Dialog KDE base widgets
 Group: Graphical desktop/KDE
 Requires: %name-core = %epoch:%version
-Obsoletes: %name-gwenview
+Obsoletes: %name-gwenview < 1:3.93.0-1
 
 %description -n kde4-gwenview
 Dialog KDE base widgets
@@ -212,6 +212,7 @@ Dialog KDE base widgets
 %_kde_appsdir/gvpart/gvpart.rc
 %_kde_appsdir/gwenview/gwenviewui.rc
 %_kde_datadir/kde4/services/gvpart.desktop
+%_kde_datadir/applications/kde4/gwenview.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -219,7 +220,7 @@ Dialog KDE base widgets
 Summary: Dialog KDE base widgets
 Group: Graphical desktop/KDE
 Requires: %name-core = %epoch:%version
-Obsoletes: kdegraphics4-kcolorchooser
+Obsoletes: kdegraphics4-kcolorchooser < 1:3.93.0-1
 
 %description -n kde4-kcolorchooser
 Dialog KDE base widgets
@@ -237,7 +238,7 @@ Dialog KDE base widgets
 %package -n %libkghostviewlib
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdegraphics40-kghostview
+Obsoletes: %{_lib}kdegraphics40-kghostview < 1:3.93.0-1
 
 %description -n %libkghostviewlib
 KDE 4 core library.
@@ -255,7 +256,7 @@ KDE 4 core library.
 Summary: Dialog KDE base widgets
 Group: Graphical desktop/KDE
 Requires: %name-core = %epoch:%version
-Obsoletes: %name-kghostview
+Obsoletes: %name-kghostview < 1:3.93.0-1
 
 %description -n kde4-kghostview
 Dialog KDE base widgets
@@ -276,13 +277,12 @@ Dialog KDE base widgets
 %doc %_kde_docdir/HTML/en/kghostview/*
 
 #-----------------------------------------------------------------------------
-
 %define libkolourpaint_lgpl %mklibname kolourpaint_lgpl 4
 
 %package -n %libkolourpaint_lgpl
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdegraphics40-kghostview
+Obsoletes: %{_lib}kdegraphics40-kghostview < 1:3.93.0-1
 
 %description -n %libkolourpaint_lgpl
 KDE 4 core library.
@@ -300,7 +300,7 @@ KDE 4 core library.
 Summary: Dialog KDE base widgets
 Group: Graphical desktop/KDE
 Requires: %name-core = %epoch:%version
-Obsoletes: %name-kolourpaint
+Obsoletes: %name-kolourpaint < 1:3.93.0-1
 
 %description -n kde4-kolourpaint
 Dialog KDE base widgets
@@ -320,7 +320,7 @@ Dialog KDE base widgets
 Summary: Dialog KDE base widgets
 Group: Graphical desktop/KDE
 Requires: %name-core = %epoch:%version
-Obsoletes: %name-kruler
+Obsoletes: %name-kruler < 1:3.93.0-1
 
 %description -n kde4-kruler
 Dialog KDE base widgets
@@ -341,7 +341,7 @@ Dialog KDE base widgets
 Summary: Dialog KDE base widgets
 Group: Graphical desktop/KDE
 Requires: %name-core = %epoch:%version
-Obsoletes: %name-ksnapshot
+Obsoletes: %name-ksnapshot < 1:3.93.0-1
 
 %description -n kde4-ksnapshot
 Dialog KDE base widgets
@@ -366,13 +366,13 @@ Requires: kde4-macros
 Requires: kdelibs4-devel
 Requires: %libokularcore
 Requires: %libgwenviewlib
-Obsoletes: %{_lib}kdegraphics40-ksvg-devel
-Obsoletes: %{_lib}kdegraphics40-kview-devel
-Obsoletes: %{_lib}kdegraphics40-kooka-devel
-Obsoletes: %{_lib}kdegraphics40-kpovmodeler-devel
-Obsoletes: %{_lib}kdegraphics40-common-devel
-Obsoletes: %{_lib}kdegraphics40-kghostview-devel
-Obsoletes: %{_lib}kdegraphics40-okular-devel
+Obsoletes: %{_lib}kdegraphics40-ksvg-devel < 1:3.93.0-1
+Obsoletes: %{_lib}kdegraphics40-kview-devel < 1:3.93.0-1
+Obsoletes: %{_lib}kdegraphics40-kooka-devel < 1:3.93.0-1
+Obsoletes: %{_lib}kdegraphics40-kpovmodeler-devel < 1:3.93.0-1
+Obsoletes: %{_lib}kdegraphics40-common-devel < 1:3.93.0-1
+Obsoletes: %{_lib}kdegraphics40-kghostview-devel < 1:3.93.0-1
+Obsoletes: %{_lib}kdegraphics40-okular-devel < 1:3.93.0-1
 
 %description  devel
 This package contains header files needed if you wish to build applications based on kdegraphics.
