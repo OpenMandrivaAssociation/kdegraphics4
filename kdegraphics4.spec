@@ -1,4 +1,4 @@
-%define revision 714385
+%define revision 726788
 
 %define use_enable_pie 1
 %{?_no_enable_pie: %{expand: %%global use_enable_pie 0}}
@@ -18,7 +18,7 @@
 
 Name: kdegraphics4
 Summary: K Desktop Environment
-Version: 3.93.0
+Version: 3.94.0
 Release: %mkrel 0.%revision.1
 Epoch: 2
 Group: Graphical desktop/KDE
@@ -164,7 +164,6 @@ Dialog KDE base widgets
 %_kde_libdir/kde4/kio_msits.so
 %_kde_datadir/applications/kde4/okular*
 %_kde_appsdir/okular
-%_kde_appsdir/okularpart
 %_kde_datadir/config.kcfg/gssettings.kcfg
 %_kde_datadir/config.kcfg/okular.kcfg
 %_kde_datadir/config/okular.knsrc
@@ -277,22 +276,23 @@ Dialog KDE base widgets
 %doc %_kde_docdir/HTML/en/kghostview/*
 
 #-----------------------------------------------------------------------------
-%define libkolourpaint_lgpl %mklibname kolourpaint_lgpl 4
+%define libkolourpaint4_lgpl %mklibname kolourpaint4_lgpl 4
 
-%package -n %libkolourpaint_lgpl
+%package -n %libkolourpaint4_lgpl
 Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: %{_lib}kdegraphics40-kghostview < 2:3.93.0-0.714385.1
+Obsoletes: %{_lib}kolourpaint4_lgpl4 < 2:3.94.0
 
-%description -n %libkolourpaint_lgpl
+%description -n %libkolourpaint4_lgpl
 KDE 4 core library.
 
-%post -n %libkolourpaint_lgpl -p /sbin/ldconfig
-%postun -n %libkolourpaint_lgpl -p /sbin/ldconfig
+%post -n %libkolourpaint4_lgpl -p /sbin/ldconfig
+%postun -n %libkolourpaint4_lgpl -p /sbin/ldconfig
 
-%files -n %libkolourpaint_lgpl
+%files -n %libkolourpaint4_lgpl
 %defattr(-,root,root)
-%_kde_libdir/libkolourpaint_lgpl.so.*
+%_kde_libdir/libkolourpaint4_lgpl.so.*
 
 #-----------------------------------------------------------------------------
 
@@ -307,12 +307,13 @@ Dialog KDE base widgets
 
 %files -n kde4-kolourpaint
 %defattr(-,root,root)
-%_kde_bindir/kolourpaint
-%_kde_datadir/applications/kde4/kolourpaint.desktop
-%_kde_appsdir/kolourpaint
+%_kde_bindir/kolourpaint4
+%_kde_datadir/applications/kde4/kolourpaint4.desktop
+%_kde_appsdir/kolourpaint4
+%_kde_iconsdir/hicolor/*/apps/kolourpaint4.*
 
-%dir %_kde_docdir/HTML/en/kolourpaint
-%doc %_kde_docdir/HTML/en/kolourpaint/*
+%dir %_kde_docdir/HTML/en/kolourpaint4
+%doc %_kde_docdir/HTML/en/kolourpaint4/*
 
 #-----------------------------------------------------------------------------
 
