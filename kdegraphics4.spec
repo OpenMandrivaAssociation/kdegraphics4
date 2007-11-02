@@ -1,4 +1,4 @@
-%define revision 730647
+%define revision 731764
 
 %define use_enable_pie 1
 %{?_no_enable_pie: %{expand: %%global use_enable_pie 0}}
@@ -18,7 +18,7 @@
 
 Name: kdegraphics4
 Summary: K Desktop Environment
-Version: 3.94.1
+Version: 3.95.1
 Release: %mkrel 0.%revision.1
 Epoch: 2
 Group: Graphical desktop/KDE
