@@ -1,4 +1,4 @@
-%define revision 731764
+%define revision 734790
 
 %define use_enable_pie 1
 %{?_no_enable_pie: %{expand: %%global use_enable_pie 0}}
@@ -18,7 +18,7 @@
 
 Name: kdegraphics4
 Summary: K Desktop Environment
-Version: 3.95.1
+Version: 3.95.2
 Release: %mkrel 0.%revision.1
 Epoch: 2
 Group: Graphical desktop/KDE
@@ -56,7 +56,6 @@ BuildRequires: qimageblitz-devel
 Requires: %name-core
 Requires: kde4-ksnapshot
 Obsoletes: kde4-kfax < 2:3.93.0-0.714385.1
-Requires: kde4-kghostview
 Requires: kde4-kcolorchooser
 Requires: kde4-okular
 Requires: kde4-gwenview
@@ -164,7 +163,6 @@ Dialog KDE base widgets
 %_kde_libdir/kde4/kio_msits.so
 %_kde_datadir/applications/kde4/okular*
 %_kde_appsdir/okular
-%_kde_datadir/config.kcfg/gssettings.kcfg
 %_kde_datadir/config.kcfg/okular.kcfg
 %_kde_datadir/config/okular.knsrc
 %_kde_iconsdir/*/*/*/okular*
@@ -232,50 +230,6 @@ Dialog KDE base widgets
 
 #-----------------------------------------------------------------------------
 
-%define libkghostviewlib %mklibname kghostviewlib 1
-
-%package -n %libkghostviewlib
-Summary: KDE 4 core library
-Group: System/Libraries
-Obsoletes: %{_lib}kdegraphics40-kghostview < 2:3.93.0-0.714385.1
-
-%description -n %libkghostviewlib
-KDE 4 core library.
-
-%post -n %libkghostviewlib -p /sbin/ldconfig
-%postun -n %libkghostviewlib -p /sbin/ldconfig
-
-%files -n %libkghostviewlib
-%defattr(-,root,root)
-%_kde_libdir/libkghostviewlib.so.*
-
-#-----------------------------------------------------------------------------
-
-%package -n kde4-kghostview
-Summary: Dialog KDE base widgets
-Group: Graphical desktop/KDE
-Requires: %name-core = %epoch:%version
-Obsoletes: %name-kghostview < 2:3.93.0-0.714385.1
-
-%description -n kde4-kghostview
-Dialog KDE base widgets
-
-%files -n kde4-kghostview
-%defattr(-,root,root)
-%_kde_bindir/kghostview
-%_kde_libdir/kde4/libkghostviewpart.so
-%_kde_datadir/applications/kde4/kghostview.desktop
-%_kde_appsdir/kconf_update/kghostview.upd
-%_kde_appsdir/kconf_update/update-to-xt-names.pl
-%_kde_appsdir/kghostview
-%_kde_datadir/config.kcfg/kghostview.kcfg
-%_kde_iconsdir/*/*/*/kghostview*
-%_kde_datadir/kde4/services/kghostview_part.desktop
-
-%dir %_kde_docdir/HTML/en/kghostview
-%doc %_kde_docdir/HTML/en/kghostview/*
-
-#-----------------------------------------------------------------------------
 %define libkolourpaint4_lgpl %mklibname kolourpaint4_lgpl 4
 
 %package -n %libkolourpaint4_lgpl
