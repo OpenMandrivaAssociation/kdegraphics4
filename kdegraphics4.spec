@@ -19,7 +19,7 @@
 Name: kdegraphics4
 Summary: K Desktop Environment
 Version: 3.95.2
-Release: %mkrel 0.%revision.1
+Release: %mkrel 0.%revision.2
 Epoch: 2
 Group: Graphical desktop/KDE
 License: GPL
@@ -151,6 +151,7 @@ Requires: %name-core = %epoch:%version
 Obsoletes: %name-okular < 2:3.93.0-0.714385.1
 Obsoletes: kdegraphics4-kpdf < 2:3.93.0-0.714385.1
 Obsoletes: kdegraphics4-kdvi < 2:3.93.0-0.714385.1
+Conflicts: %name-devel < 2:3.95.2-0.734790.2
 
 %description -n kde4-okular
 Dialog KDE base widgets
@@ -161,6 +162,7 @@ Dialog KDE base widgets
 %_kde_libdir/kde4/libokularGenerator_*
 %_kde_libdir/kde4/libokularpart.so
 %_kde_libdir/kde4/kio_msits.so
+%_kde_libdir/libspectreOkular.so
 %_kde_datadir/applications/kde4/okular*
 %_kde_appsdir/okular
 %_kde_datadir/config.kcfg/okular.kcfg
@@ -328,13 +330,16 @@ Obsoletes: %{_lib}kdegraphics40-kpovmodeler-devel < 2:3.93.0-0.714385.1
 Obsoletes: %{_lib}kdegraphics40-common-devel < 2:3.93.0-0.714385.1
 Obsoletes: %{_lib}kdegraphics40-kghostview-devel < 2:3.93.0-0.714385.1
 Obsoletes: %{_lib}kdegraphics40-okular-devel < 2:3.93.0-0.714385.1
+Conflicts: kde4-okular < 2:3.95.2-0.734790.2
 
 %description  devel
 This package contains header files needed if you wish to build applications based on kdegraphics.
 
 %files devel
 %defattr(-,root,root)
-%_kde_libdir/*.so
+%_kde_libdir/libgwenviewlib.so
+%_kde_libdir/libkolourpaint4_lgpl.so
+%_kde_libdir/libokularcore.so
 %_kde_prefix/include/*
 
 #----------------------------------------------------------------------
