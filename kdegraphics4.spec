@@ -112,6 +112,7 @@ Common files for kdegraphics
 Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: %{_lib}kdegraphics40-okular < 2:3.93.0-0.714385.1
+Obsoletes: %{_lib}kghostviewlib1 <  2:3.95.2-0.734790.2
 
 %description -n %libokularcore
 KDE 4 core library.
@@ -151,6 +152,7 @@ Requires: %name-core = %epoch:%version
 Obsoletes: %name-okular < 2:3.93.0-0.714385.1
 Obsoletes: kdegraphics4-kpdf < 2:3.93.0-0.714385.1
 Obsoletes: kdegraphics4-kdvi < 2:3.93.0-0.714385.1
+Obsoletes: kde4-kghostview < 2:3.95.2-0.734790.2
 Conflicts: %name-devel < 2:3.95.2-0.734790.2
 
 %description -n kde4-okular
