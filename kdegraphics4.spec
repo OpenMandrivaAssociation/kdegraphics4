@@ -19,7 +19,7 @@
 Name: kdegraphics4
 Summary: K Desktop Environment
 Version: 3.96.1
-Release: %mkrel 0.%revision.1
+Release: %mkrel 0.%revision.3
 Epoch: 2
 Group: Graphical desktop/KDE
 License: GPL
@@ -241,6 +241,7 @@ Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: %{_lib}kdegraphics40-kghostview < 2:3.93.0-0.714385.1
 Obsoletes: %{_lib}kolourpaint4_lgpl4 < 2:3.94.0
+Obsoletes: %{_lib}kolourpaint_lgpl4 < 2:3.94.0
 
 %description -n %libkolourpaint4_lgpl
 KDE 4 core library.
