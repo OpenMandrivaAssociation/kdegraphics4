@@ -1,4 +1,4 @@
-%define revision 740289
+%define revision 742895
 
 %define use_enable_pie 1
 %{?_no_enable_pie: %{expand: %%global use_enable_pie 0}}
@@ -98,6 +98,9 @@ Common files for kdegraphics
 %files core
 %defattr(-,root,root)
 %_kde_libdir/kde4/gsthumbnail.so
+%_kde_libdir/kde4/svgpart.so
+%_kde_appsdir/svgpart/svgpart.rc
+%_kde_datadir/kde4/services/svgpart.desktop
 %_kde_libdir/strigi/*
 %_kde_datadir/kde4/services/gsthumbnail.desktop
 %_kde_libdir/kde4/kscanplugin.so
