@@ -1,4 +1,4 @@
-%define revision 742895
+%define revision 747032
 
 %define use_enable_pie 1
 %{?_no_enable_pie: %{expand: %%global use_enable_pie 0}}
@@ -18,8 +18,8 @@
 
 Name: kdegraphics4
 Summary: K Desktop Environment
-Version: 3.96.1
-Release: %mkrel 0.%revision.3
+Version: 3.97.1
+Release: %mkrel 0.%revision.1
 Epoch: 2
 Group: Graphical desktop/KDE
 License: GPL
@@ -127,6 +127,24 @@ KDE 4 core library.
 %defattr(-,root,root)
 %_kde_libdir/libokularcore.so.*
 
+#------------------------------------------------
+
+%define libspectreOkular %mklibname spectreOkular 1
+
+%package -n %libspectreOkular
+Summary: KDE 4 core library
+Group: System/Libraries
+
+%description -n %libspectreOkular
+KDE 4 core library.
+
+%post -n %libspectreOkular -p /sbin/ldconfig
+%postun -n %libspectreOkular -p /sbin/ldconfig
+
+%files -n %libspectreOkular
+%defattr(-,root,root)
+%_kde_libdir/libspectreOkular.so.*
+
 #-----------------------------------------------------------------------------
 
 %package -n kde4-kamera
@@ -164,8 +182,9 @@ Dialog KDE base widgets
 %files -n kde4-okular
 %defattr(-,root,root)
 %_kde_bindir/okular
-%_kde_libdir/kde4/libokularGenerator_*
-%_kde_libdir/kde4/libokularpart.so
+%_kde_bindir/xf86gammacfg
+%_kde_libdir/kde4/okularGenerator_*
+%_kde_libdir/kde4/okularpart.so
 %_kde_libdir/kde4/kio_msits.so
 %_kde_libdir/libspectreOkular.so
 %_kde_datadir/applications/kde4/okular*
@@ -327,8 +346,9 @@ Summary: Devel stuff for kdegraphics
 Group: Development/KDE and Qt
 Requires: kde4-macros
 Requires: kdelibs4-devel
-Requires: %libokularcore
-Requires: %libgwenviewlib
+Requires: %libokularcore = %version-%release
+Requires: %libgwenviewlib = %version-%release
+Requires: %libspectreOkular = %version-%release
 Obsoletes: %{_lib}kdegraphics40-ksvg-devel < 2:3.93.0-0.714385.1
 Obsoletes: %{_lib}kdegraphics40-kview-devel < 2:3.93.0-0.714385.1
 Obsoletes: %{_lib}kdegraphics40-kooka-devel < 2:3.93.0-0.714385.1
