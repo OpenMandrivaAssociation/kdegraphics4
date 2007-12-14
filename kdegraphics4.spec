@@ -19,7 +19,7 @@
 Name: kdegraphics4
 Summary: K Desktop Environment
 Version: 3.97.1
-Release: %mkrel 0.%revision.1
+Release: %mkrel 0.%revision.2
 Epoch: 2
 Group: Graphical desktop/KDE
 License: GPL
@@ -346,9 +346,9 @@ Summary: Devel stuff for kdegraphics
 Group: Development/KDE and Qt
 Requires: kde4-macros
 Requires: kdelibs4-devel
-Requires: %libokularcore = %version-%release
-Requires: %libgwenviewlib = %version-%release
-Requires: %libspectreOkular = %version-%release
+Requires: %libokularcore = %epoch:%version-%release
+Requires: %libgwenviewlib = %epoch:%version-%release
+Requires: %libspectreOkular = %epoch:%version-%release
 Obsoletes: %{_lib}kdegraphics40-ksvg-devel < 2:3.93.0-0.714385.1
 Obsoletes: %{_lib}kdegraphics40-kview-devel < 2:3.93.0-0.714385.1
 Obsoletes: %{_lib}kdegraphics40-kooka-devel < 2:3.93.0-0.714385.1
