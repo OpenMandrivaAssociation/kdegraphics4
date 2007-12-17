@@ -29,7 +29,6 @@ Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdegraphics-%version.%revi
 %else
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdegraphics-%version.tar.bz2
 %endif
-Buildroot:	%_tmppath/%name-%version-%release-root
 BuildRequires: jpeg-devel 
 BuildRequires: png-devel 
 BuildRequires: libimlib-devel 
