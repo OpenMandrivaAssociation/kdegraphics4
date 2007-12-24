@@ -1,4 +1,4 @@
-%define revision 747032
+%define revision 752259
 
 %define use_enable_pie 1
 %{?_no_enable_pie: %{expand: %%global use_enable_pie 0}}
@@ -19,14 +19,15 @@
 Name: kdegraphics4
 Summary: K Desktop Environment
 Version: 3.97.1
-Release: %mkrel 0.%revision.2
 Epoch: 2
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
 %if %branch
+Release: %mkrel 0.%revision.1
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdegraphics-%version.%revision.tar.bz2
 %else
+Release: %mkrel 1
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdegraphics-%version.tar.bz2
 %endif
 BuildRequires: jpeg-devel 
