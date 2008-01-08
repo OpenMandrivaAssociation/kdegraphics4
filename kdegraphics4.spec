@@ -9,7 +9,7 @@
 %define unstable 1
 %{?_unstable: %{expand: %%global unstable 1}}
 
-%define branch 1
+%define branch 0
 %{?_branch: %{expand: %%global branch 1}}
 
 %if %unstable
@@ -18,7 +18,7 @@
 
 Name: kdegraphics4
 Summary: K Desktop Environment
-Version: 3.97.1
+Version: 4.0.0
 Epoch: 2
 Group: Graphical desktop/KDE
 License: GPL
@@ -62,6 +62,7 @@ Requires: kde4-okular
 Requires: kde4-gwenview
 Requires: kde4-kruler
 Requires: kde4-kolourpaint
+Requires: kde4-kgamma
 
 %description
 Graphical tools for the K Desktop Environment.
@@ -148,6 +149,23 @@ KDE 4 core library.
 
 #-----------------------------------------------------------------------------
 
+%package -n kde4-kgamma
+Summary: kgamma color profiling
+Group: Graphical desktop/KDE
+Requires: %name-core = %epoch:%version
+
+%description -n kde4-kgamma
+kgamma color profiling
+
+%files -n kde4-kgamma
+%defattr(-,root,root)
+%_kde_datadir/kde4/services/kgamma*
+%_kde_appsdir/kgamma
+%_kde_iconsdir/*/*/*/kgamma*
+%_kde_libdir/kde4/*_kgamma.*
+
+#-----------------------------------------------------------------------------
+
 %package -n kde4-kamera
 Summary: kamera ioslave
 Group: Graphical desktop/KDE
@@ -192,7 +210,6 @@ Dialog KDE base widgets
 %_kde_appsdir/okular
 %_kde_datadir/config.kcfg/okular.kcfg
 %_kde_datadir/config/okular.knsrc
-%_kde_iconsdir/*/*/*/okular*
 %_kde_datadir/kde4/services/libokularGenerator_*
 %_kde_datadir/kde4/services/okular*
 %_kde_datadir/kde4/services/msits*
@@ -237,6 +254,7 @@ Dialog KDE base widgets
 %_kde_appsdir/gwenview/gwenviewui.rc
 %_kde_datadir/kde4/services/gvpart.desktop
 %_kde_datadir/applications/kde4/gwenview.desktop
+%_kde_iconsdir/*/*/*/gwenview*
 
 #-----------------------------------------------------------------------------
 
