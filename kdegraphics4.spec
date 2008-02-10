@@ -232,6 +232,7 @@ Dialog KDE base widgets
 %_kde_datadir/kde4/services/gvpart.desktop
 %_kde_datadir/applications/kde4/gwenview.desktop
 %_kde_iconsdir/*/*/*/gwenview*
+%_kde_docdir/*/*/gwenview
 
 #-----------------------------------------------------------------------------
 
@@ -309,9 +310,7 @@ Dialog KDE base widgets
 %_kde_datadir/applications/kde4/kruler.desktop
 %_kde_appsdir/kruler
 %_kde_iconsdir/*/*/*/kruler*
-
-%dir %_kde_docdir/HTML/en/kruler
-%doc %_kde_docdir/HTML/en/kruler/*
+%_kde_docdir/*/*/kruler
 
 #-----------------------------------------------------------------------------
 
@@ -331,9 +330,7 @@ Dialog KDE base widgets
 %_kde_datadir/applications/kde4/ksnapshot.desktop
 %_kde_iconsdir/*/*/*/ksnapshot*
 %_datadir/dbus-1/interfaces/org.kde.ksnapshot.xml
-
-%dir %_kde_docdir/HTML/en/ksnapshot
-%doc %_kde_docdir/HTML/en/ksnapshot/*
+%_kde_docdir/*/*/ksnapshot
 
 #-----------------------------------------------------------------------------
 
