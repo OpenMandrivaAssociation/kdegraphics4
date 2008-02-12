@@ -352,7 +352,8 @@ Obsoletes: %{_lib}kdegraphics40-okular-devel < 2:3.93.0-0.714385.1
 Conflicts: kde4-okular < 2:3.95.2-0.734790.2
 
 %description  devel
-This package contains header files needed if you wish to build applications based on kdegraphics.
+This package contains header files needed if you wish to build applications
+based on kdegraphics.
 
 %files devel
 %defattr(-,root,root)
