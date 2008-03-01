@@ -361,6 +361,7 @@ based on kdegraphics.
 %_kde_libdir/libkolourpaint4_lgpl.so
 %_kde_libdir/libokularcore.so
 %_kde_prefix/include/*
+%_kde_appsdir/cmake/*/*
 
 #----------------------------------------------------------------------
 
