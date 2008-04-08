@@ -1,6 +1,6 @@
 Name: kdegraphics4
 Summary: K Desktop Environment
-Version: 4.0.3
+Version: 4.0.68
 Epoch: 2
 Group: Graphical desktop/KDE
 License: GPL
@@ -23,8 +23,9 @@ BuildRequires: libsane-devel
 BuildRequires: OpenEXR-devel
 BuildRequires: libtiff-progs
 BuildRequires: gphoto2-devel
+BuildRequires: libspectre-devel
 BuildRequires: fontconfig-devel
-BuildRequires: libpoppler-qt4-devel
+BuildRequires: libpoppler-qt4-devel >= 0.8.0
 BuildRequires: mesaglut-devel
 BuildRequires: djvulibre-devel
 BuildRequires: libchm-devel
@@ -32,14 +33,14 @@ BuildRequires: libgs-devel
 BuildRequires: libexiv-devel
 BuildRequires: qimageblitz-devel
 Requires: %name-core
-Requires: kde4-ksnapshot
+Requires: ksnapshot
 Obsoletes: kde4-kfax < 2:3.93.0-0.714385.1
-Requires: kde4-kcolorchooser
-Requires: kde4-okular
-Requires: kde4-gwenview
-Requires: kde4-kruler
-Requires: kde4-kolourpaint
-Requires: kde4-kgamma
+Requires: kcolorchooser
+Requires: okular
+Requires: gwenview
+Requires: kruler
+Requires: kolourpaint
+Requires: kgamma
 
 %description
 Graphical tools for the K Desktop Environment.
@@ -106,35 +107,19 @@ KDE 4 core library.
 %defattr(-,root,root)
 %_kde_libdir/libokularcore.so.*
 
-#------------------------------------------------
-
-%define libspectreOkular %mklibname spectreOkular 1
-
-%package -n %libspectreOkular
-Summary: KDE 4 core library
-Group: System/Libraries
-
-%description -n %libspectreOkular
-KDE 4 core library.
-
-%post -n %libspectreOkular -p /sbin/ldconfig
-%postun -n %libspectreOkular -p /sbin/ldconfig
-
-%files -n %libspectreOkular
-%defattr(-,root,root)
-%_kde_libdir/libspectreOkular.so.*
-
 #-----------------------------------------------------------------------------
 
-%package -n kde4-kgamma
+%package -n kgamma
 Summary: kgamma color profiling
 Group: Graphical desktop/KDE
 Requires: %name-core = %epoch:%version
+Obsoletes: kde4-kgamma < 2:4.0.68
+Provides: kde4-kgamma = %epoch:%version
 
-%description -n kde4-kgamma
+%description -n kgamma
 kgamma color profiling
 
-%files -n kde4-kgamma
+%files -n kgamma
 %defattr(-,root,root)
 %_kde_datadir/kde4/services/kgamma*
 %_kde_appsdir/kgamma
@@ -143,16 +128,18 @@ kgamma color profiling
 
 #-----------------------------------------------------------------------------
 
-%package -n kde4-kamera
+%package -n kamera
 Summary: kamera ioslave
 Group: Graphical desktop/KDE
 Requires: %name-core = %epoch:%version
 Obsoletes: %name-kamera < 2:3.93.0-0.714385.1
+Obsoletes: kde4-kamera < 2:4.0.68
+Provides: kde4-kamera = %epoch:%version
 
-%description -n kde4-kamera
+%description -n kamera
 Dialog KDE base widgets
 
-%files -n kde4-kamera
+%files -n kamera
 %defattr(-,root,root)
 %dir %_kde_docdir/HTML/en/kamera
 %doc %_kde_docdir/HTML/en/kamera/*
@@ -162,7 +149,7 @@ Dialog KDE base widgets
 
 #-----------------------------------------------------------------------------
 
-%package -n kde4-okular
+%package -n okular
 Summary: Dialog KDE base widgets
 Group: Graphical desktop/KDE
 Requires: %name-core = %epoch:%version
@@ -171,21 +158,23 @@ Obsoletes: kdegraphics4-kpdf < 2:3.93.0-0.714385.1
 Obsoletes: kdegraphics4-kdvi < 2:3.93.0-0.714385.1
 Obsoletes: kde4-kghostview < 2:3.95.2-0.734790.2
 Conflicts: %name-devel < 2:3.95.2-0.734790.2
+Obsoletes: kde4-okular < 2:4.0.68
+Provides: kde4-okular = %epoch:%version
 
-%description -n kde4-okular
+%description -n okular
 Dialog KDE base widgets
 
-%files -n kde4-okular
+%files -n okular
 %defattr(-,root,root)
 %_kde_bindir/okular
 %_kde_bindir/xf86gammacfg
 %_kde_libdir/kde4/okularGenerator_*
 %_kde_libdir/kde4/okularpart.so
 %_kde_libdir/kde4/kio_msits.so
-%_kde_libdir/libspectreOkular.so
 %_kde_datadir/applications/kde4/okular*
 %_kde_appsdir/okular
 %_kde_datadir/config.kcfg/okular.kcfg
+%_kde_datadir/config.kcfg/gssettings.kcfg
 %_kde_datadir/config/okular.knsrc
 %_kde_datadir/kde4/services/libokularGenerator_*
 %_kde_datadir/kde4/services/okular*
@@ -214,21 +203,24 @@ KDE 4 core library.
 
 #-----------------------------------------------------------------------------
 
-%package -n kde4-gwenview
+%package -n gwenview
 Summary: Dialog KDE base widgets
 Group: Graphical desktop/KDE
 Requires: %name-core = %epoch:%version
 Obsoletes: %name-gwenview < 2:3.93.0-0.714385.1
+Obsoletes: kde4-gwenview < 2:4.0.68
+Provides: kde4-gwenview = %epoch:%version
 
-%description -n kde4-gwenview
+%description -n gwenview
 Dialog KDE base widgets
 
-%files -n kde4-gwenview
+%files -n gwenview
 %defattr(-,root,root)
 %_kde_bindir/gwenview
 %_kde_libdir/kde4/gvpart.so
 %_kde_appsdir/gvpart/gvpart.rc
-%_kde_appsdir/gwenview/gwenviewui.rc
+%dir %_kde_appsdir/gwenview
+%_kde_appsdir/gwenview/*
 %_kde_datadir/kde4/services/gvpart.desktop
 %_kde_datadir/applications/kde4/gwenview.desktop
 %_kde_iconsdir/*/*/*/gwenview*
@@ -236,16 +228,18 @@ Dialog KDE base widgets
 
 #-----------------------------------------------------------------------------
 
-%package -n kde4-kcolorchooser
+%package -n kcolorchooser
 Summary: Dialog KDE base widgets
 Group: Graphical desktop/KDE
 Requires: %name-core = %epoch:%version
 Obsoletes: kdegraphics4-kcolorchooser < 2:3.93.0-0.714385.1
+Obsoletes: kde4-kcolorchooser < 2:4.0.68
+Provides: kde4-kcolorchooser = %epoch:%version
 
-%description -n kde4-kcolorchooser
+%description -n kcolorchooser
 Dialog KDE base widgets
 
-%files -n kde4-kcolorchooser
+%files -n kcolorchooser
 %defattr(-,root,root)
 %_kde_bindir/kcolorchooser
 %_kde_datadir/applications/kde4/kcolorchooser.desktop
@@ -274,37 +268,40 @@ KDE 4 core library.
 
 #-----------------------------------------------------------------------------
 
-%package -n kde4-kolourpaint
+%package -n kolourpaint
 Summary: Dialog KDE base widgets
 Group: Graphical desktop/KDE
 Requires: %name-core = %epoch:%version
 Obsoletes: %name-kolourpaint < 2:3.93.0-0.714385.1
+Obsoletes: kde4-kolourpaint < 2:4.0.68
+Provides: kde4-kolourpaint = %epoch:%version
 
-%description -n kde4-kolourpaint
+%description -n kolourpaint
 Dialog KDE base widgets
 
-%files -n kde4-kolourpaint
+%files -n kolourpaint
 %defattr(-,root,root)
 %_kde_bindir/kolourpaint4
 %_kde_datadir/applications/kde4/kolourpaint4.desktop
 %_kde_appsdir/kolourpaint4
 %_kde_iconsdir/hicolor/*/apps/kolourpaint4.*
-
 %dir %_kde_docdir/HTML/en/kolourpaint4
 %doc %_kde_docdir/HTML/en/kolourpaint4/*
 
 #-----------------------------------------------------------------------------
 
-%package -n kde4-kruler
+%package -n kruler
 Summary: Dialog KDE base widgets
 Group: Graphical desktop/KDE
 Requires: %name-core = %epoch:%version
 Obsoletes: %name-kruler < 2:3.93.0-0.714385.1
+Obsoletes: kde4-kruler < 2:4.0.68
+Provides: kde4-kruler = %epoch:%version
 
-%description -n kde4-kruler
+%description -n kruler
 Dialog KDE base widgets
 
-%files -n kde4-kruler
+%files -n kruler
 %defattr(-,root,root)
 %_kde_bindir/kruler
 %_kde_datadir/applications/kde4/kruler.desktop
@@ -314,16 +311,18 @@ Dialog KDE base widgets
 
 #-----------------------------------------------------------------------------
 
-%package -n kde4-ksnapshot
+%package -n ksnapshot
 Summary: Dialog KDE base widgets
 Group: Graphical desktop/KDE
 Requires: %name-core = %epoch:%version
 Obsoletes: %name-ksnapshot < 2:3.93.0-0.714385.1
+Obsoletes: kde4-ksnapshot < 2:4.0.68
+Provides: kde4-ksnapshot = %epoch:%version
 
-%description -n kde4-ksnapshot
+%description -n ksnapshot
 Dialog KDE base widgets
 
-%files -n kde4-ksnapshot
+%files -n ksnapshot
 %defattr(-,root,root)
 %_kde_bindir/kbackgroundsnapshot
 %_kde_bindir/ksnapshot
@@ -341,7 +340,6 @@ Requires: kde4-macros
 Requires: kdelibs4-devel
 Requires: %libokularcore = %epoch:%version-%release
 Requires: %libgwenviewlib = %epoch:%version-%release
-Requires: %libspectreOkular = %epoch:%version-%release
 Obsoletes: %{_lib}kdegraphics40-ksvg-devel < 2:3.93.0-0.714385.1
 Obsoletes: %{_lib}kdegraphics40-kview-devel < 2:3.93.0-0.714385.1
 Obsoletes: %{_lib}kdegraphics40-kooka-devel < 2:3.93.0-0.714385.1
