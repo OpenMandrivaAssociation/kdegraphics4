@@ -32,6 +32,8 @@ BuildRequires: libchm-devel
 BuildRequires: libgs-devel
 BuildRequires: libexiv-devel
 BuildRequires: qimageblitz-devel
+BuildRequires: kde4-libkipi-devel >= 0.2.0
+BuildRequires: ebook-tools-devel
 Requires: %name-core
 Requires: ksnapshot
 Obsoletes: kde4-kfax < 2:3.93.0-0.714385.1
