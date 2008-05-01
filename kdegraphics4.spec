@@ -1,6 +1,6 @@
 Name: kdegraphics4
 Summary: K Desktop Environment
-Version: 4.0.71
+Version: 4.0.72
 Epoch: 2
 Group: Graphical desktop/KDE
 License: GPL
@@ -182,8 +182,7 @@ Dialog KDE base widgets
 %_kde_datadir/kde4/services/okular*
 %_kde_datadir/kde4/services/msits*
 %_kde_datadir/kde4/servicetypes/okularGenerator.desktop
-%dir %_kde_docdir/HTML/en/okular
-%doc %_kde_docdir/HTML/en/okular/*
+%_kde_docdir/HTML/en/okular
 
 #------------------------------------------------	
 
@@ -221,8 +220,7 @@ Dialog KDE base widgets
 %_kde_bindir/gwenview
 %_kde_libdir/kde4/gvpart.so
 %_kde_appsdir/gvpart/gvpart.rc
-%dir %_kde_appsdir/gwenview
-%_kde_appsdir/gwenview/*
+%_kde_appsdir/gwenview
 %_kde_datadir/kde4/services/gvpart.desktop
 %_kde_datadir/applications/kde4/gwenview.desktop
 %_kde_iconsdir/*/*/*/gwenview*
@@ -287,8 +285,7 @@ Dialog KDE base widgets
 %_kde_datadir/applications/kde4/kolourpaint4.desktop
 %_kde_appsdir/kolourpaint4
 %_kde_iconsdir/hicolor/*/apps/kolourpaint4.*
-%dir %_kde_docdir/HTML/en/kolourpaint4
-%doc %_kde_docdir/HTML/en/kolourpaint4/*
+%_kde_docdir/HTML/en/kolourpaint4
 
 #-----------------------------------------------------------------------------
 
