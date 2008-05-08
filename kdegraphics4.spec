@@ -1,6 +1,6 @@
 Name: kdegraphics4
 Summary: K Desktop Environment
-Version: 4.0.72
+Version: 4.0.73
 Epoch: 2
 Group: Graphical desktop/KDE
 License: GPL
@@ -191,7 +191,7 @@ Dialog KDE base widgets
 %package -n %libgwenviewlib
 Summary:    KDE 4 core library
 Group:      System/Libraries
-Obsoletes:  %{lib}gwenview1 <= 1.4.2-8 
+Obsoletes:  %{_lib}gwenview1 <= 1.4.2-8 
 
 %description -n %libgwenviewlib
 KDE 4 core library.
