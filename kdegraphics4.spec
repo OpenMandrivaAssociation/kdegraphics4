@@ -189,8 +189,9 @@ Dialog KDE base widgets
 %define libgwenviewlib %mklibname gwenviewlib 1
 
 %package -n %libgwenviewlib
-Summary: KDE 4 core library
-Group: System/Libraries
+Summary:    KDE 4 core library
+Group:      System/Libraries
+Obsoletes:  %{lib}gwenview1 <= 1.4.2-8 
 
 %description -n %libgwenviewlib
 KDE 4 core library.
@@ -205,15 +206,25 @@ KDE 4 core library.
 #-----------------------------------------------------------------------------
 
 %package -n gwenview
-Summary: Dialog KDE base widgets
-Group: Graphical desktop/KDE
-Requires: %name-core = %epoch:%version
-Obsoletes: %name-gwenview < 2:3.93.0-0.714385.1
-Obsoletes: kde4-gwenview < 2:4.0.68
-Provides: kde4-gwenview = %epoch:%version
+Summary:    Fast and easy to use image viewer for KDE
+Group:      Graphical desktop/KDE
+Requires:   %name-core = %epoch:%version
+Obsoletes:  %name-gwenview < 2:3.93.0-0.714385.1
+Obsoletes:  kde4-gwenview < 2:4.0.68
+Provides:   kde4-gwenview = %epoch:%version
 
 %description -n gwenview
-Dialog KDE base widgets
+Gwenview is a fast and easy to use image viewer/browser for KDE.
+All common image formats are supported, such as PNG(including transparency),
+JPEG(including EXIF tags and lossless transformations), GIF, XCF (Gimp
+image format), BMP, XPM and others. Standard features include slideshow,
+fullscreen view, image thumbnails, drag'n'drop, image zoom, full network
+transparency using the KIO framework, including basic file operations and
+browsing in compressed archives, non-blocking GUI with adjustable views.
+Gwenview also provides image and directory KParts components for use e.g. in
+Konqueror. Additional features, such as image renaming, comparing,
+converting, and batch processing, HTML gallery and others are provided by the
+KIPI image framework.
 
 %files -n gwenview
 %defattr(-,root,root)
