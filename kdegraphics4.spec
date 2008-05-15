@@ -5,7 +5,7 @@ Epoch: 2
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-Release: %mkrel 1
+Release: %mkrel 2
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdegraphics-%version.tar.bz2
 Buildroot:	%_tmppath/%name-%version-%release-root
 BuildRequires: jpeg-devel 
@@ -191,7 +191,7 @@ Dialog KDE base widgets
 %package -n %libgwenviewlib
 Summary:    KDE 4 core library
 Group:      System/Libraries
-Obsoletes:  %{_lib}gwenview1 <= 1.4.2-8 
+Obsoletes:  %{_lib}gwenview1 < 1.4.2-9 
 
 %description -n %libgwenviewlib
 KDE 4 core library.
