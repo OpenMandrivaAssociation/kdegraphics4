@@ -84,10 +84,12 @@ Common files for kdegraphics
 %_kde_appsdir/svgpart/svgpart.rc
 %_kde_datadir/kde4/services/svgpart.desktop
 %_kde_libdir/strigi/*
+%_kde_libdir/kde4/ksaneplugin.so
+%_kde_datadir/kde4/services/ksane_scan_service.desktop
 %_kde_datadir/kde4/services/gsthumbnail.desktop
-%_kde_libdir/kde4/kscanplugin.so
-%_kde_iconsdir/*/*/*/palette_*
-%_kde_datadir/kde4/services/scanservice.desktop
+%_kde_iconsdir/hicolor/16x16/actions/black-white.png
+%_kde_iconsdir/hicolor/16x16/actions/color.png
+%_kde_iconsdir/hicolor/16x16/actions/gray-scale.png
 
 #------------------------------------------------	
 
@@ -203,6 +205,24 @@ KDE 4 core library.
 %defattr(-,root,root)
 %_kde_libdir/libgwenviewlib.so.*
 
+#------------------------------------------------
+
+%define libksane %mklibname ksane 0
+
+%package -n %libksane
+Summary:    KDE 4 core library
+Group:      System/Libraries
+
+%description -n %libksane
+KDE 4 core library.
+
+%post -n %libksane -p /sbin/ldconfig
+%postun -n %libksane -p /sbin/ldconfig
+
+%files -n %libksane
+%defattr(-,root,root)
+%_kde_libdir/libksane.so.*
+
 #-----------------------------------------------------------------------------
 
 %package -n gwenview
@@ -258,24 +278,25 @@ Dialog KDE base widgets
 
 #-----------------------------------------------------------------------------
 
-%define libkolourpaint4_lgpl %mklibname kolourpaint4_lgpl 4
+%define libkolourpaint_lgpl %mklibname kolourpaint_lgpl 4
 
-%package -n %libkolourpaint4_lgpl
+%package -n %libkolourpaint_lgpl
 Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: %{_lib}kdegraphics40-kghostview < 2:3.93.0-0.714385.1
 Obsoletes: %{_lib}kolourpaint4_lgpl4 < 2:3.94.0
+Obsoletes: %{_lib}kolourpaint4_lgpl < 2:4.0.74-1
 Obsoletes: %{_lib}kolourpaint_lgpl4 < 2:3.94.0
 
-%description -n %libkolourpaint4_lgpl
+%description -n %libkolourpaint_lgpl
 KDE 4 core library.
 
-%post -n %libkolourpaint4_lgpl -p /sbin/ldconfig
-%postun -n %libkolourpaint4_lgpl -p /sbin/ldconfig
+%post -n %libkolourpaint_lgpl -p /sbin/ldconfig
+%postun -n %libkolourpaint_lgpl -p /sbin/ldconfig
 
-%files -n %libkolourpaint4_lgpl
+%files -n %libkolourpaint_lgpl
 %defattr(-,root,root)
-%_kde_libdir/libkolourpaint4_lgpl.so.*
+%_kde_libdir/libkolourpaint_lgpl.so.*
 
 #-----------------------------------------------------------------------------
 
@@ -292,11 +313,11 @@ Dialog KDE base widgets
 
 %files -n kolourpaint
 %defattr(-,root,root)
-%_kde_bindir/kolourpaint4
-%_kde_datadir/applications/kde4/kolourpaint4.desktop
-%_kde_appsdir/kolourpaint4
-%_kde_iconsdir/hicolor/*/apps/kolourpaint4.*
-%_kde_docdir/HTML/en/kolourpaint4
+%_kde_bindir/kolourpaint
+%_kde_datadir/applications/kde4/kolourpaint.desktop
+%_kde_appsdir/kolourpaint
+%_kde_iconsdir/hicolor/*/apps/kolourpaint.*
+%_kde_docdir/HTML/en/kolourpaint
 
 #-----------------------------------------------------------------------------
 
@@ -350,6 +371,7 @@ Requires: kde4-macros
 Requires: kdelibs4-devel
 Requires: %libokularcore = %epoch:%version-%release
 Requires: %libgwenviewlib = %epoch:%version-%release
+Requires: %libksane  = %epoch:%version-%release
 Obsoletes: %{_lib}kdegraphics40-ksvg-devel < 2:3.93.0-0.714385.1
 Obsoletes: %{_lib}kdegraphics40-kview-devel < 2:3.93.0-0.714385.1
 Obsoletes: %{_lib}kdegraphics40-kooka-devel < 2:3.93.0-0.714385.1
@@ -366,9 +388,11 @@ based on kdegraphics.
 %files devel
 %defattr(-,root,root)
 %_kde_libdir/libgwenviewlib.so
-%_kde_libdir/libkolourpaint4_lgpl.so
+%_kde_libdir/libkolourpaint_lgpl.so
 %_kde_libdir/libokularcore.so
-%_kde_prefix/include/*
+%_kde_libdir/libksane.so
+%_kde_libdir/pkgconfig/libksane.pc
+%_kde_includedir/*
 %_kde_appsdir/cmake/*/*
 
 #----------------------------------------------------------------------
