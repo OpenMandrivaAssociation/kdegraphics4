@@ -81,7 +81,7 @@ Common files for kdegraphics
 %defattr(-,root,root)
 %_kde_libdir/kde4/gsthumbnail.so
 %_kde_libdir/kde4/svgpart.so
-%_kde_appsdir/svgpart/svgpart.rc
+%_kde_appsdir/svgpart
 %_kde_datadir/kde4/services/svgpart.desktop
 %_kde_libdir/strigi/*
 %_kde_libdir/kde4/ksaneplugin.so
