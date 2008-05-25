@@ -254,6 +254,7 @@ KIPI image framework.
 %_kde_appsdir/gvpart/gvpart.rc
 %_kde_appsdir/gwenview
 %_kde_datadir/kde4/services/gvpart.desktop
+%_kde_datadir/kde4/services/ServiceMenus/slideshow.desktop
 %_kde_datadir/applications/kde4/gwenview.desktop
 %_kde_iconsdir/*/*/*/gwenview*
 %_kde_docdir/*/*/gwenview
