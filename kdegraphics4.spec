@@ -477,6 +477,9 @@ Obsoletes: %{_lib}kexiv-devel
 Obsoletes: %{_lib}kdcraw-devel
 Obsoletes: %{_lib}kipi-devel
 Conflicts: kde4-okular < 2:3.95.2-0.734790.2
+Provides: libkexiv-devel = %epoch:%version-%release
+Provides: libkdcraw-devel = %epoch:%version-%release
+Provides: libkipi-devel = %epoch:%version-%release
 
 %description  devel
 This package contains header files needed if you wish to build applications
