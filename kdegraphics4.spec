@@ -189,6 +189,95 @@ Dialog KDE base widgets
 
 #------------------------------------------------	
 
+%package -n libkdcraw-common
+Summary: Non-library files for the kdcraw library
+Group: System/Libraries
+Obsoletes: kde4-libkdcraw < 0.2.0-0.744910.5
+
+%description -n libkdcraw-common
+Common files for the kdcraw library
+
+%files -n libkdcraw-common
+%defattr(-,root,root)
+%{_kde_appsdir}/libkdcraw
+%{_kde_iconsdir}/hicolor/*/apps/kdcraw.png
+
+#------------------------------------------------	
+
+%define	libkdcraw %mklibname kdcraw 5
+
+%package -n %{libkdcraw}
+Summary: %{name} library
+Group: System/Libraries
+Requires: libkdcraw-common
+
+%description -n %{libkdcraw}
+%{name} library.
+
+%post -n %{libkdcraw} -p /sbin/ldconfig
+%postun -n %{libkdcraw} -p /sbin/ldconfig
+
+%files -n %{libkdcraw}
+%defattr(0644, root, root, 0755)
+%{_kde_libdir}/libkdcraw.so.*
+%{_kde_libdir}/libkdcraw5/CAMERALIST              
+%attr(0755, root, root) %{_kde_libdir}/libkdcraw5/kdcraw
+
+#------------------------------------------------	
+
+%package -n kipi-common
+Summary: Non-library files for the kipi library
+Group: System/Libraries
+
+%description -n kipi-common
+Common files for the kipi library
+
+%files -n kipi-common
+%defattr(-,root,root)
+%{_kde_appsdir}/kipi
+%{_kde_iconsdir}/*/*/*/kipi.*
+%{_kde_servicetypes}/kipiplugin.desktop
+
+#------------------------------------------------	
+
+%define	libkipi %mklibname kipi 5
+
+%package -n %{libkipi}
+Summary: %{name} library
+Group: System/Libraries
+Requires: kipi-common
+
+%description -n %{libkipi}
+%{name} library.
+
+%post -n %{libkipi} -p /sbin/ldconfig
+%postun -n %{libkipi} -p /sbin/ldconfig
+
+%files -n %{libkipi}
+%defattr(0644, root, root, 0755)
+%{_kde_libdir}/libkipi.so.*
+
+#------------------------------------------------	
+
+%define	libkexiv2 %mklibname kexiv2_ 6
+
+%package -n %{libkexiv2}
+Summary: %{name} library
+Group: System/Libraries
+Obsoletes: %mklibname kexiv 6
+
+%description -n %{libkexiv2}
+%{name} library.
+
+%post -n %{libkexiv2} -p /sbin/ldconfig
+%postun -n %{libkexiv2} -p /sbin/ldconfig
+
+%files -n %{libkexiv2}
+%defattr(0644, root, root, 0755)
+%{_kde_libdir}/libkexiv2.so.*
+
+#------------------------------------------------	
+
 %define libgwenviewlib %mklibname gwenviewlib 1
 
 %package -n %libgwenviewlib
@@ -374,6 +463,9 @@ Requires: kdelibs4-devel
 Requires: %libokularcore = %epoch:%version-%release
 Requires: %libgwenviewlib = %epoch:%version-%release
 Requires: %libksane  = %epoch:%version-%release
+Requires: %libkipi  = %epoch:%version-%release
+Requires: %libkdcraw  = %epoch:%version-%release
+Requires: %libkexiv2  = %epoch:%version-%release
 Obsoletes: %{_lib}kdegraphics40-ksvg-devel < 2:3.93.0-0.714385.1
 Obsoletes: %{_lib}kdegraphics40-kview-devel < 2:3.93.0-0.714385.1
 Obsoletes: %{_lib}kdegraphics40-kooka-devel < 2:3.93.0-0.714385.1
@@ -381,6 +473,9 @@ Obsoletes: %{_lib}kdegraphics40-kpovmodeler-devel < 2:3.93.0-0.714385.1
 Obsoletes: %{_lib}kdegraphics40-common-devel < 2:3.93.0-0.714385.1
 Obsoletes: %{_lib}kdegraphics40-kghostview-devel < 2:3.93.0-0.714385.1
 Obsoletes: %{_lib}kdegraphics40-okular-devel < 2:3.93.0-0.714385.1
+Obsoletes: %{_lib}kexiv-devel
+Obsoletes: %{_lib}kdcraw-devel
+Obsoletes: %{_lib}kipi-devel
 Conflicts: kde4-okular < 2:3.95.2-0.734790.2
 
 %description  devel
@@ -389,11 +484,8 @@ based on kdegraphics.
 
 %files devel
 %defattr(-,root,root)
-%_kde_libdir/libgwenviewlib.so
-%_kde_libdir/libkolourpaint_lgpl.so
-%_kde_libdir/libokularcore.so
-%_kde_libdir/libksane.so
-%_kde_libdir/pkgconfig/libksane.pc
+%_kde_libdir/*.so
+%_kde_libdir/pkgconfig/*.pc
 %_kde_includedir/*
 %_kde_appsdir/cmake/*/*
 
