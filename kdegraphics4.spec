@@ -106,8 +106,12 @@ Obsoletes: %{_lib}spectreOkular1 < 2:4.0.74-1
 %description -n %libokularcore
 KDE 4 core library.
 
+%if %mdkversion < 200900
 %post -n %libokularcore -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libokularcore -p /sbin/ldconfig
+%endif
 
 %files -n %libokularcore
 %defattr(-,root,root)
@@ -215,8 +219,12 @@ Requires: libkdcraw-common
 %description -n %{libkdcraw}
 %{name} library.
 
+%if %mdkversion < 200900
 %post -n %{libkdcraw} -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %{libkdcraw} -p /sbin/ldconfig
+%endif
 
 %files -n %{libkdcraw}
 %defattr(0644, root, root, 0755)
@@ -251,8 +259,12 @@ Requires: kipi-common
 %description -n %{libkipi}
 %{name} library.
 
+%if %mdkversion < 200900
 %post -n %{libkipi} -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %{libkipi} -p /sbin/ldconfig
+%endif
 
 %files -n %{libkipi}
 %defattr(0644, root, root, 0755)
@@ -270,8 +282,12 @@ Obsoletes: %mklibname kexiv 6
 %description -n %{libkexiv2}
 %{name} library.
 
+%if %mdkversion < 200900
 %post -n %{libkexiv2} -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %{libkexiv2} -p /sbin/ldconfig
+%endif
 
 %files -n %{libkexiv2}
 %defattr(0644, root, root, 0755)
@@ -289,8 +305,12 @@ Obsoletes:  %{_lib}gwenview1 < 1.4.2-9
 %description -n %libgwenviewlib
 KDE 4 core library.
 
+%if %mdkversion < 200900
 %post -n %libgwenviewlib -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libgwenviewlib -p /sbin/ldconfig
+%endif
 
 %files -n %libgwenviewlib
 %defattr(-,root,root)
@@ -307,8 +327,12 @@ Group:      System/Libraries
 %description -n %libksane
 KDE 4 core library.
 
+%if %mdkversion < 200900
 %post -n %libksane -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libksane -p /sbin/ldconfig
+%endif
 
 %files -n %libksane
 %defattr(-,root,root)
@@ -383,8 +407,12 @@ Obsoletes: %{_lib}kolourpaint_lgpl4 < 2:3.94.0
 %description -n %libkolourpaint_lgpl
 KDE 4 core library.
 
+%if %mdkversion < 200900
 %post -n %libkolourpaint_lgpl -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libkolourpaint_lgpl -p /sbin/ldconfig
+%endif
 
 %files -n %libkolourpaint_lgpl
 %defattr(-,root,root)
