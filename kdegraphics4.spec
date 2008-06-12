@@ -32,7 +32,6 @@ BuildRequires: libchm-devel
 BuildRequires: libgs-devel
 BuildRequires: libexiv-devel
 BuildRequires: qimageblitz-devel
-BuildRequires: libkipi-devel >= 0.2.0
 BuildRequires: ebook-tools-devel
 BuildRequires: lcms-devel
 Requires: %name-core
@@ -479,7 +478,6 @@ Dialog KDE base widgets
 %_kde_bindir/ksnapshot
 %_kde_datadir/applications/kde4/ksnapshot.desktop
 %_kde_iconsdir/*/*/*/ksnapshot*
-%_datadir/dbus-1/interfaces/org.kde.ksnapshot.xml
 %_kde_docdir/*/*/ksnapshot
 
 #-----------------------------------------------------------------------------
@@ -520,6 +518,7 @@ based on kdegraphics.
 %_kde_libdir/pkgconfig/*.pc
 %_kde_includedir/*
 %_kde_appsdir/cmake/*/*
+%_kde_datadir/dbus-1/interfaces/org.kde.ksnapshot.xml
 
 #----------------------------------------------------------------------
 
