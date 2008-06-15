@@ -1,11 +1,11 @@
 Name: kdegraphics4
 Summary: K Desktop Environment
 Version: 4.0.82
+Release: %mkrel 3
 Epoch: 2
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-Release: %mkrel 2
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdegraphics-%version.tar.bz2
 Buildroot:	%_tmppath/%name-%version-%release-root
 BuildRequires: jpeg-devel 
@@ -93,7 +93,8 @@ Common files for kdegraphics
 
 #------------------------------------------------	
 
-%define libokularcore %mklibname okularcore 1
+%define okularcore_major 1
+%define libokularcore %mklibname okularcore %okularcore_major
 
 %package -n %libokularcore
 Summary: KDE 4 core library
@@ -114,7 +115,7 @@ KDE 4 core library.
 
 %files -n %libokularcore
 %defattr(-,root,root)
-%_kde_libdir/libokularcore.so.*
+%_kde_libdir/libokularcore.so.%{okularcore_major}*
 
 #-----------------------------------------------------------------------------
 
@@ -215,7 +216,8 @@ Common files for the kdcraw library
 
 #------------------------------------------------	
 
-%define	libkdcraw %mklibname kdcraw 5
+%define	kdcraw_major 5
+%define	libkdcraw %mklibname kdcraw %kdcraw_major
 
 %package -n %{libkdcraw}
 Summary: %{name} library
@@ -234,7 +236,7 @@ Requires: libkdcraw-common
 
 %files -n %{libkdcraw}
 %defattr(0644, root, root, 0755)
-%{_kde_libdir}/libkdcraw.so.*
+%{_kde_libdir}/libkdcraw.so.%{kdcraw_major}*
 %{_kde_libdir}/libkdcraw5/CAMERALIST              
 %attr(0755, root, root) %{_kde_libdir}/libkdcraw5/kdcraw
 
@@ -243,7 +245,7 @@ Requires: libkdcraw-common
 %package -n kipi-common
 Summary: Non-library files for the kipi library
 Group: System/Libraries
-Obsoletes: %{_lib}kipi < 4.0.81
+Obsoletes: libkipi < 1:0.3
 
 %description -n kipi-common
 Common files for the kipi library
@@ -256,7 +258,8 @@ Common files for the kipi library
 
 #------------------------------------------------	
 
-%define	libkipi %mklibname kipi 5
+%define	kipi_major 5
+%define	libkipi %mklibname kipi %kipi_major
 
 %package -n %{libkipi}
 Summary: %{name} library
@@ -275,11 +278,12 @@ Requires: kipi-common
 
 %files -n %{libkipi}
 %defattr(0644, root, root, 0755)
-%{_kde_libdir}/libkipi.so.*
+%{_kde_libdir}/libkipi.so.%{kipi_major}*
 
 #------------------------------------------------	
 
-%define	libkexiv2 %mklibname kexiv2_ 6
+%define kexiv2_major 6
+%define	libkexiv2 %mklibname kexiv2_ %kexiv2_major
 
 %package -n %{libkexiv2}
 Summary: %{name} library
@@ -298,16 +302,19 @@ Obsoletes: %mklibname kexiv 6
 
 %files -n %{libkexiv2}
 %defattr(0644, root, root, 0755)
-%{_kde_libdir}/libkexiv2.so.*
+%{_kde_libdir}/libkexiv2.so.%{kexiv2_major}*
 
 #------------------------------------------------	
 
-%define libgwenviewlib %mklibname gwenviewlib 1
+%define gwenviewlib_major 4
+%define libgwenviewlib %mklibname gwenviewlib %gwenviewlib_major
 
 %package -n %libgwenviewlib
 Summary:    KDE 4 core library
 Group:      System/Libraries
-Obsoletes:  %{_lib}gwenview1 < 1.4.2-9 
+Obsoletes:  %{_lib}gwenview1 < 1.4.2-9
+# (Anssi 06/2008) Package had wrong major:
+Obsoletes:  %{_lib}gwenviewlib1 < 2:4.0.82-3 
 
 %description -n %libgwenviewlib
 KDE 4 core library.
@@ -321,11 +328,12 @@ KDE 4 core library.
 
 %files -n %libgwenviewlib
 %defattr(-,root,root)
-%_kde_libdir/libgwenviewlib.so.*
+%_kde_libdir/libgwenviewlib.so.%{gwenviewlib_major}*
 
 #------------------------------------------------
 
-%define libksane %mklibname ksane 0
+%define ksane_major 0
+%define libksane %mklibname ksane %ksane_major
 
 %package -n %libksane
 Summary:    KDE 4 core library
@@ -343,7 +351,7 @@ KDE 4 core library.
 
 %files -n %libksane
 %defattr(-,root,root)
-%_kde_libdir/libksane.so.*
+%_kde_libdir/libksane.so.%{ksane_major}*
 
 #-----------------------------------------------------------------------------
 
@@ -401,7 +409,8 @@ KDE Color Chooser
 
 #-----------------------------------------------------------------------------
 
-%define libkolourpaint_lgpl %mklibname kolourpaint_lgpl 4
+%define kolourpaint_lgpl_major 4
+%define libkolourpaint_lgpl %mklibname kolourpaint_lgpl %kolourpaint_lgpl_major
 
 %package -n %libkolourpaint_lgpl
 Summary: KDE 4 core library
@@ -423,7 +432,7 @@ KDE 4 core library.
 
 %files -n %libkolourpaint_lgpl
 %defattr(-,root,root)
-%_kde_libdir/libkolourpaint_lgpl.so.*
+%_kde_libdir/libkolourpaint_lgpl.so.%{kolourpaint_lgpl_major}*
 
 #-----------------------------------------------------------------------------
 
