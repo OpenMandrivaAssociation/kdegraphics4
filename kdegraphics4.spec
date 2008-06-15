@@ -146,7 +146,7 @@ Obsoletes: kde4-kamera < 2:4.0.68
 Provides: kde4-kamera = %epoch:%version
 
 %description -n kamera
-Dialog KDE base widgets
+kamera ioslave
 
 %files -n kamera
 %defattr(-,root,root)
@@ -159,7 +159,7 @@ Dialog KDE base widgets
 #-----------------------------------------------------------------------------
 
 %package -n okular
-Summary: Dialog KDE base widgets
+Summary: A universal document viewer
 Group: Graphical desktop/KDE
 Requires: %name-core = %epoch:%version
 Obsoletes: %name-okular < 2:3.93.0-0.714385.1
@@ -171,7 +171,14 @@ Obsoletes: kde4-okular < 2:4.0.68
 Provides: kde4-okular = %epoch:%version
 
 %description -n okular
-Dialog KDE base widgets
+Okular is a universal document viewer based on KPDF for KDE 4.
+
+Okular combines the excellent functionalities of KPDF with the versatility
+of supporting different kind of documents, like PDF, Postscript, DjVu, CHM,
+and others.
+
+The document format handlers page has a chart describing in more detail
+the supported formats and the features supported in each of them.
 
 %files -n okular
 %defattr(-,root,root)
@@ -376,7 +383,7 @@ KIPI image framework.
 #-----------------------------------------------------------------------------
 
 %package -n kcolorchooser
-Summary: Dialog KDE base widgets
+Summary: KDE Color Chooser
 Group: Graphical desktop/KDE
 Requires: %name-core = %epoch:%version
 Obsoletes: kdegraphics4-kcolorchooser < 2:3.93.0-0.714385.1
@@ -384,7 +391,7 @@ Obsoletes: kde4-kcolorchooser < 2:4.0.68
 Provides: kde4-kcolorchooser = %epoch:%version
 
 %description -n kcolorchooser
-Dialog KDE base widgets
+KDE Color Chooser
 
 %files -n kcolorchooser
 %defattr(-,root,root)
@@ -421,7 +428,7 @@ KDE 4 core library.
 #-----------------------------------------------------------------------------
 
 %package -n kolourpaint
-Summary: Dialog KDE base widgets
+Summary: A free, easy-to-use paint program for KDE
 Group: Graphical desktop/KDE
 Requires: %name-core = %epoch:%version
 Obsoletes: %name-kolourpaint < 2:3.93.0-0.714385.1
@@ -429,7 +436,15 @@ Obsoletes: kde4-kolourpaint < 2:4.0.68
 Provides: kde4-kolourpaint = %epoch:%version
 
 %description -n kolourpaint
-Dialog KDE base widgets
+KolourPaint is a free, easy-to-use paint program for KDE.
+
+It aims to be conceptually simple to understand; providing a level of
+functionality targeted towards the average user.  It's designed for daily
+tasks like:
+
+* Painting - drawing diagrams and "finger painting"
+* Image Manipulation - editing screenshots and photos; applying effects
+* Icon Editing - drawing clipart and logos with transparency
 
 %files -n kolourpaint
 %defattr(-,root,root)
@@ -442,7 +457,7 @@ Dialog KDE base widgets
 #-----------------------------------------------------------------------------
 
 %package -n kruler
-Summary: Dialog KDE base widgets
+Summary: KDE Screen Ruler
 Group: Graphical desktop/KDE
 Requires: %name-core = %epoch:%version
 Obsoletes: %name-kruler < 2:3.93.0-0.714385.1
@@ -450,7 +465,7 @@ Obsoletes: kde4-kruler < 2:4.0.68
 Provides: kde4-kruler = %epoch:%version
 
 %description -n kruler
-Dialog KDE base widgets
+A screen ruler for the K Desktop Environment
 
 %files -n kruler
 %defattr(-,root,root)
@@ -463,7 +478,7 @@ Dialog KDE base widgets
 #-----------------------------------------------------------------------------
 
 %package -n ksnapshot
-Summary: Dialog KDE base widgets
+Summary: KDE Screenshot Utility
 Group: Graphical desktop/KDE
 Requires: %name-core = %epoch:%version
 Obsoletes: %name-ksnapshot < 2:3.93.0-0.714385.1
@@ -471,7 +486,7 @@ Obsoletes: kde4-ksnapshot < 2:4.0.68
 Provides: kde4-ksnapshot = %epoch:%version
 
 %description -n ksnapshot
-Dialog KDE base widgets
+KDE Screenshot Utility
 
 %files -n ksnapshot
 %defattr(-,root,root)
