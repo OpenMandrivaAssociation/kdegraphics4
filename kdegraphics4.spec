@@ -1,7 +1,7 @@
 Name: kdegraphics4
 Summary: K Desktop Environment
 Version: 4.0.83
-Release: %mkrel 3
+Release: %mkrel 4
 Epoch: 2
 Group: Graphical desktop/KDE
 License: GPL
@@ -246,6 +246,7 @@ Requires: libkdcraw-common
 Summary: Non-library files for the kipi library
 Group: System/Libraries
 Obsoletes: libkipi < 1:0.3
+Obsoletes: kde4-libkipi < 
 
 %description -n kipi-common
 Common files for the kipi library
