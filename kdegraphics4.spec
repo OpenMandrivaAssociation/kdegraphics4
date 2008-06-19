@@ -246,7 +246,7 @@ Requires: libkdcraw-common
 Summary: Non-library files for the kipi library
 Group: System/Libraries
 Obsoletes: libkipi < 1:0.3
-Obsoletes: kde4-libkipi < 
+Obsoletes: kde4-libkipi < 1:0.3
 
 %description -n kipi-common
 Common files for the kipi library
