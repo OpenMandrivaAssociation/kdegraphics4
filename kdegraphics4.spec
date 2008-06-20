@@ -198,6 +198,7 @@ the supported formats and the features supported in each of them.
 %_kde_datadir/kde4/services/msits*
 %_kde_datadir/kde4/servicetypes/okularGenerator.desktop
 %_kde_docdir/HTML/en/okular
+%_kde_iconsdir/*/*/*/okular.*
 
 #------------------------------------------------	
 
