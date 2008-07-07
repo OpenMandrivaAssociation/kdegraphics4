@@ -1,7 +1,7 @@
 Name: kdegraphics4
 Summary: K Desktop Environment
-Version: 4.0.84
-Release: %mkrel 3
+Version: 4.0.85
+Release: %mkrel 1
 Epoch: 2
 Group: Graphical desktop/KDE
 License: GPL
