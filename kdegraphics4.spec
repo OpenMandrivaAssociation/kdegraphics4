@@ -383,7 +383,7 @@ KIPI image framework.
 %defattr(-,root,root)
 %_kde_bindir/gwenview
 %_kde_libdir/kde4/gvpart.so
-%_kde_appsdir/gvpart/gvpart.rc
+%_kde_appsdir/gvpart
 %_kde_appsdir/gwenview
 %_kde_datadir/kde4/services/gvpart.desktop
 %_kde_datadir/kde4/services/ServiceMenus/slideshow.desktop
