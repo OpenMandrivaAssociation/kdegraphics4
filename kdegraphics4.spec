@@ -1,13 +1,14 @@
 Name: kdegraphics4
 Summary: K Desktop Environment
 Version: 4.1.0
-Release: %mkrel 1
+Release: %mkrel 2
 Epoch: 2
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdegraphics-%version.tar.bz2
 Patch0: kdegraphics-4.0.84-fix-desktop-files.patch
+Patch1: kdegraphics-4.1.0-backport-missing-function.patch
 Buildroot:	%_tmppath/%name-%version-%release-root
 BuildRequires: jpeg-devel 
 BuildRequires: png-devel 
@@ -553,6 +554,7 @@ based on kdegraphics.
 %prep
 %setup -q -n kdegraphics-%version
 %patch0 -p0
+%patch1 -p0
 
 %build
 %cmake_kde4
