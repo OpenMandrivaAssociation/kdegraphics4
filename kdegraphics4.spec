@@ -1,7 +1,7 @@
 Name: kdegraphics4
 Summary: K Desktop Environment
 Version: 4.1.0
-Release: %mkrel 3
+Release: %mkrel 4
 Epoch: 2
 Group: Graphical desktop/KDE
 License: GPL
@@ -9,6 +9,19 @@ URL: http://www.kde.org
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdegraphics-%version.tar.bz2
 Patch0: kdegraphics-4.0.84-fix-desktop-files.patch
 Patch1: kdegraphics-4.1.0-backport-missing-function.patch
+# Post 4.1 patches
+Patch100: kdegraphics-post-4.1.0-rev837136.patch
+Patch101: kdegraphics-post-4.1.0-rev837342.patch
+Patch102: kdegraphics-post-4.1.0-rev837638.patch
+Patch103: kdegraphics-post-4.1.0-rev837831.patch
+Patch104: kdegraphics-post-4.1.0-rev837843.patch
+Patch105: kdegraphics-post-4.1.0-rev838788.patch
+Patch106: kdegraphics-post-4.1.0-rev839381.patch
+Patch107: kdegraphics-post-4.1.0-rev839567.patch
+Patch108: kdegraphics-post-4.1.0-rev839617.patch
+Patch109: kdegraphics-post-4.1.0-rev839973.patch
+Patch110: kdegraphics-post-4.1.0-rev841348.patch
+Patch111: kdegraphics-post-4.1.0-rev841925.patch
 Buildroot:	%_tmppath/%name-%version-%release-root
 BuildRequires: jpeg-devel 
 BuildRequires: png-devel 
@@ -555,6 +568,21 @@ based on kdegraphics.
 %setup -q -n kdegraphics-%version
 %patch0 -p0
 %patch1 -p0
+# Post 4.1 patches
+%patch100 -p0 -b .post410
+# Already applied - keep as reference
+#patch101 -p0 -b .post410
+#patch102 -p0 -b .post410
+%patch103 -p0 -b .post410
+%patch104 -p0 -b .post410
+# Already applied - keep as reference
+#patch105 -p0 -b .post410
+%patch106 -p0 -b .post410
+%patch107 -p0 -b .post410
+%patch108 -p0 -b .post410
+%patch109 -p0 -b .post410
+%patch110 -p0 -b .post410
+%patch111 -p0 -b .post410
 
 %build
 %cmake_kde4
