@@ -8,7 +8,7 @@ License: GPL
 URL: http://www.kde.org
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdegraphics-%version.tar.bz2
 Patch0: kdegraphics-4.0.84-fix-desktop-files.patch
-Buildroot:	%_tmppath/%name-%version-%release-root
+Buildroot: %_tmppath/%name-%version-%release-root
 BuildRequires: jpeg-devel 
 BuildRequires: png-devel 
 BuildRequires: libimlib-devel 
@@ -136,6 +136,7 @@ kgamma color profiling
 %_kde_appsdir/kgamma
 %_kde_iconsdir/*/*/*/kgamma*
 %_kde_libdir/kde4/*_kgamma.*
+%_kde_docdir/HTML/*/*/kgamma
 
 #-----------------------------------------------------------------------------
 
