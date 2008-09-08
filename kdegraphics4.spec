@@ -221,7 +221,7 @@ Common files for the kdcraw library
 
 #------------------------------------------------	
 
-%define	kdcraw_major 5
+%define	kdcraw_major 6
 %define	libkdcraw %mklibname kdcraw %kdcraw_major
 
 %package -n %{libkdcraw}
@@ -242,8 +242,8 @@ Requires: libkdcraw-common
 %files -n %{libkdcraw}
 %defattr(0644, root, root, 0755)
 %{_kde_libdir}/libkdcraw.so.%{kdcraw_major}*
-%{_kde_libdir}/libkdcraw5/CAMERALIST              
-%attr(0755, root, root) %{_kde_libdir}/libkdcraw5/kdcraw
+%{_kde_libdir}/libkdcraw6/CAMERALIST              
+%attr(0755, root, root) %{_kde_libdir}/libkdcraw6/kdcraw
 
 #------------------------------------------------	
 
@@ -288,7 +288,7 @@ Requires: kipi-common
 
 #------------------------------------------------	
 
-%define kexiv2_major 6
+%define kexiv2_major 7
 %define	libkexiv2 %mklibname kexiv2_ %kexiv2_major
 
 %package -n %{libkexiv2}
