@@ -12,7 +12,7 @@ Patch100:       kdegraphics-post-4.1.1-rev857805.patch
 Patch101:       kdegraphics-post-4.1.1-rev857806.patch
 Patch102:       kdegraphics-post-4.1.1-rev858925.patch
 Patch103:       kdegraphics-post-4.1.1-rev858931.patch
-Patch104:       kdeegraphics-post-4.1.1-rev858982.patch
+Patch104:       kdegraphics-post-4.1.1-rev858982.patch
 Buildroot:     %_tmppath/%name-%version-%release-root
 BuildRequires: jpeg-devel 
 BuildRequires: png-devel 
