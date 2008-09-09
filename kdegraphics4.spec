@@ -1,17 +1,17 @@
-Name: kdegraphics4
-Summary: K Desktop Environment
-Version: 4.1.1
-Release: %mkrel 4
-Epoch: 2
-Group: Graphical desktop/KDE
-License: GPL
-URL: http://www.kde.org
-Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdegraphics-%version.tar.bz2
-Patch0: kdegraphics-4.0.84-fix-desktop-files.patch
+Name:          kdegraphics4
+Summary:       K Desktop Environment
+Version:       4.1.1
+Release:       %mkrel 4
+Epoch:         2
+Group:         Graphical desktop/KDE
+License:       GPL
+URL:           http://www.kde.org
+Source:	       ftp://ftp.kde.org/pub/kde/stable/%version/src/kdegraphics-%version.tar.bz2
+Patch0:        kdegraphics-4.0.84-fix-desktop-files.patch
 Patch10:       kdegraphics-post-4.1.1-rev857805.patch
 Patch11:       kdegraphics-post-4.1.1-rev857806.patch
 Patch12:       kdegraphics-post-4.1.1-rev858925.patch
-Buildroot: %_tmppath/%name-%version-%release-root
+Buildroot:     %_tmppath/%name-%version-%release-root
 BuildRequires: jpeg-devel 
 BuildRequires: png-devel 
 BuildRequires: libimlib-devel 
@@ -38,15 +38,15 @@ BuildRequires: libexiv-devel
 BuildRequires: qimageblitz-devel
 BuildRequires: ebook-tools-devel
 BuildRequires: lcms-devel
-Requires: %name-core
-Requires: ksnapshot
-Obsoletes: kde4-kfax < 2:3.93.0-0.714385.1
-Requires: kcolorchooser
-Requires: okular
-Requires: gwenview
-Requires: kruler
-Requires: kolourpaint
-Requires: kgamma
+Requires:      %name-core
+Requires:      ksnapshot
+Obsoletes:     kde4-kfax < 2:3.93.0-0.714385.1
+Requires:      kcolorchooser
+Requires:      okular
+Requires:      gwenview
+Requires:      kruler
+Requires:      kolourpaint
+Requires:      kgamma
 
 %description
 Graphical tools for the K Desktop Environment.
@@ -58,11 +58,11 @@ kdegraphics is a collection of graphic oriented applications
 
 #----------------------------------------------------------------------
 
-%package core
-Summary: Core files for kdegraphics
-Group: Graphical desktop/KDE	
-Requires: kdelibs4-core
-Requires: libgphoto-hotplug
+%package   core
+Summary:   Core files for kdegraphics
+Group:     Graphical desktop/KDE	
+Requires:  kdelibs4-core
+Requires:  libgphoto-hotplug
 Obsoletes: kdegraphics4-common < 2:3.93.0-0.714385.1
 Obsoletes: kdegraphics4-kview < 2:3.93.0-0.714385.1
 Obsoletes: kdegraphics4-kiconedit < 2:3.93.0-0.714385.1
@@ -101,11 +101,11 @@ Common files for kdegraphics
 %define libokularcore %mklibname okularcore %okularcore_major
 
 %package -n %libokularcore
-Summary: KDE 4 core library
-Group: System/Libraries
-Obsoletes: %{_lib}kdegraphics40-okular < 2:3.93.0-0.714385.1
-Obsoletes: %{_lib}kghostviewlib1 < 2:3.95.2-0.734790.2
-Obsoletes: %{_lib}spectreOkular1 < 2:4.0.74-1
+Summary:    KDE 4 core library
+Group:      System/Libraries
+Obsoletes:  %{_lib}kdegraphics40-okular < 2:3.93.0-0.714385.1
+Obsoletes:  %{_lib}kghostviewlib1 < 2:3.95.2-0.734790.2
+Obsoletes:  %{_lib}spectreOkular1 < 2:4.0.74-1
 
 %description -n %libokularcore
 KDE 4 core library.
@@ -124,11 +124,11 @@ KDE 4 core library.
 #-----------------------------------------------------------------------------
 
 %package -n kgamma
-Summary: kgamma color profiling
-Group: Graphical desktop/KDE
-Requires: %name-core = %epoch:%version
-Obsoletes: kde4-kgamma < 2:4.0.68
-Provides: kde4-kgamma = %epoch:%version
+Summary:    kgamma color profiling
+Group:      Graphical desktop/KDE
+Requires:   %name-core = %epoch:%version
+Obsoletes:  kde4-kgamma < 2:4.0.68
+Provides:   kde4-kgamma = %epoch:%version
 
 %description -n kgamma
 kgamma color profiling
