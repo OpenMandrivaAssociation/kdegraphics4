@@ -1,7 +1,7 @@
 Name:          kdegraphics4
 Summary:       K Desktop Environment
 Version:       4.1.2
-Release:       %mkrel 1
+Release:       %mkrel 2
 Epoch:         2
 Group:         Graphical desktop/KDE
 License:       GPL
@@ -172,6 +172,7 @@ Obsoletes: kde4-kghostview < 2:3.95.2-0.734790.2
 Conflicts: %name-devel < 2:3.95.2-0.734790.2
 Obsoletes: kde4-okular < 2:4.0.68
 Provides: kde4-okular = %epoch:%version
+Conflicts: kdegraphics-common < 1:3.5.9-9mdv
 
 %description -n okular
 Okular is a universal document viewer based on KPDF for KDE 4.
