@@ -1,7 +1,7 @@
 Name:          kdegraphics4
 Summary:       K Desktop Environment
-Version:       4.1.2
-Release:       %mkrel 2
+Version:       4.1.70
+Release:       %mkrel 1
 Epoch:         2
 Group:         Graphical desktop/KDE
 License:       GPL
@@ -153,8 +153,8 @@ kamera ioslave
 
 %files -n kamera
 %defattr(-,root,root)
-%dir %_kde_docdir/HTML/en/kamera
-%doc %_kde_docdir/HTML/en/kamera/*
+%dir %_kde_docdir/HTML/en/kcontrol/kamera
+%doc %_kde_docdir/HTML/en/kcontrol/kamera/*
 %_kde_libdir/kde4/*_kamera.*
 %_kde_datadir/kde4/services/camera*
 %_kde_datadir/kde4/services/kamera*
@@ -220,7 +220,7 @@ Common files for the kdcraw library
 
 #------------------------------------------------	
 
-%define	kdcraw_major 6
+%define	kdcraw_major 7
 %define	libkdcraw %mklibname kdcraw %kdcraw_major
 
 %package -n %{libkdcraw}
@@ -241,8 +241,6 @@ Requires: libkdcraw-common
 %files -n %{libkdcraw}
 %defattr(0644, root, root, 0755)
 %{_kde_libdir}/libkdcraw.so.%{kdcraw_major}*
-%{_kde_libdir}/libkdcraw6/CAMERALIST              
-%attr(0755, root, root) %{_kde_libdir}/libkdcraw6/kdcraw
 
 #------------------------------------------------	
 
