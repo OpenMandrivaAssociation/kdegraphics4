@@ -1,6 +1,6 @@
 Name:          kdegraphics4
 Summary:       K Desktop Environment
-Version:       4.1.71
+Version:       4.1.73
 Release:       %mkrel 1
 Epoch:         2
 Group:         Graphical desktop/KDE
@@ -35,6 +35,7 @@ BuildRequires: libexiv-devel
 BuildRequires: qimageblitz-devel
 BuildRequires: ebook-tools-devel
 BuildRequires: lcms-devel
+BuildRequires: kipi-plugins-devel
 Requires:      %name-core
 Requires:      ksnapshot
 Obsoletes:     kde4-kfax < 2:3.93.0-0.714385.1
