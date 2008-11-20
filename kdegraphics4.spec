@@ -262,13 +262,14 @@ Common files for the kipi library
 
 #------------------------------------------------	
 
-%define	kipi_major 5
+%define	kipi_major 6
 %define	libkipi %mklibname kipi %kipi_major
 
 %package -n %{libkipi}
 Summary: %{name} library
 Group: System/Libraries
 Requires: kipi-common
+Obsoletes:%{_lib}kipi5 
 
 %description -n %{libkipi}
 %{name} library.
