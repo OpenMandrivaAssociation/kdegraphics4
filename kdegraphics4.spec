@@ -7,7 +7,7 @@ Group:         Graphical desktop/KDE
 License:       GPL
 URL:           http://www.kde.org
 Source:	       ftp://ftp.kde.org/pub/kde/stable/%version/src/kdegraphics-%version.tar.bz2
-Patch0:         kdegraphics-4.0.84-fix-desktop-files.patch
+Patch0:         kdegraphics-4.1.80-fix-desktop-files.patch
 Buildroot:     %_tmppath/%name-%version-%release-root
 BuildRequires: jpeg-devel 
 BuildRequires: png-devel 
@@ -553,7 +553,7 @@ based on kdegraphics.
 
 %prep
 %setup -q -n kdegraphics-%version
-%patch0 -p0
+%patch0 -p1
 
 %build
 %cmake_kde4
