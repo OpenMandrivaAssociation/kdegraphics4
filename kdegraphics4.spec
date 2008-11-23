@@ -228,6 +228,7 @@ Common files for the kdcraw library
 Summary: %{name} library
 Group: System/Libraries
 Requires: libkdcraw-common
+Obsoletes:  %{_lib}kdcraw6
 
 %description -n %{libkdcraw}
 %{name} library.
