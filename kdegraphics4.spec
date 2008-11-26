@@ -1,7 +1,7 @@
 Name:          kdegraphics4
 Summary:       K Desktop Environment
 Version:       4.1.80
-Release:       %mkrel 2
+Release:       %mkrel 3
 Epoch:         2
 Group:         Graphical desktop/KDE
 License:       GPL
@@ -61,7 +61,7 @@ kdegraphics is a collection of graphic oriented applications
 %package   core
 Summary:   Core files for kdegraphics
 Group:     Graphical desktop/KDE	
-Requires:  kdedebase4-runtime
+Requires:  kdebase4-runtime
 Requires:  libgphoto-hotplug
 Obsoletes: kdegraphics4-common < 2:3.93.0-0.714385.1
 Obsoletes: kdegraphics4-kview < 2:3.93.0-0.714385.1
