@@ -1,13 +1,13 @@
 Name:          kdegraphics4
 Summary:       K Desktop Environment
-Version: 4.1.80
-Release: %mkrel 1
+Version:       4.1.80
+Release:       %mkrel 2
 Epoch:         2
 Group:         Graphical desktop/KDE
 License:       GPL
 URL:           http://www.kde.org
 Source:	       ftp://ftp.kde.org/pub/kde/stable/%version/src/kdegraphics-%version.tar.bz2
-Patch0:         kdegraphics-4.1.80-fix-desktop-files.patch
+Patch0:        kdegraphics-4.1.80-fix-desktop-files.patch
 Buildroot:     %_tmppath/%name-%version-%release-root
 BuildRequires: jpeg-devel 
 BuildRequires: png-devel 
@@ -46,6 +46,8 @@ Requires:      kruler
 Requires:      kolourpaint
 Requires:      kgamma
 
+Obsoletes:     kdegraphics < 1:3.5.10-3
+
 %description
 Graphical tools for the K Desktop Environment.
 kdegraphics is a collection of graphic oriented applications
@@ -59,7 +61,7 @@ kdegraphics is a collection of graphic oriented applications
 %package   core
 Summary:   Core files for kdegraphics
 Group:     Graphical desktop/KDE	
-Requires:  kdelibs4-core
+Requires:  kdedebase4-runtime
 Requires:  libgphoto-hotplug
 Obsoletes: kdegraphics4-common < 2:3.93.0-0.714385.1
 Obsoletes: kdegraphics4-kview < 2:3.93.0-0.714385.1
@@ -75,6 +77,15 @@ Obsoletes: %{_lib}kdegraphics40-ksvg < 2:3.93.0-0.714385.1
 Obsoletes: %{_lib}kdegraphics40-kooka < 2:3.93.0-0.714385.1
 Obsoletes: %{_lib}kdegraphics40-common < 2:3.93.0-0.714385.1
 Obsoletes: %{_lib}kscan1 < 2:3.93.0-0.714385.1
+Obsoletes: kdegraphics-common < 1:3.5.10-3
+Obsoletes: %{_lib}kdegraphics0-common < 1:3.5.10-3
+Obsoletes: kdegraphics-mrmlsearch < 1:3.5.10-3
+Obsoletes: kdegraphics-kooka < 1:3.5.10-3
+Obsoletes: %{_lib}kdegraphics0-kooka < 1:3.5.10-3
+Obsoletes: kdegraphics-kview < 1:3.5.10-3
+Obsoletes: %{_lib}kdegraphics0-kview < 1:3.5.10-3
+Obsoletes: kdegraphics-ksvg < 1:3.5.10-3
+Obsoletes: %{_lib}kdegraphics0-ksvg < 1:3.5.10-3
 
 %description core
 Common files for kdegraphics
@@ -104,6 +115,7 @@ Group:      System/Libraries
 Obsoletes:  %{_lib}kdegraphics40-okular < 2:3.93.0-0.714385.1
 Obsoletes:  %{_lib}kghostviewlib1 < 2:3.95.2-0.734790.2
 Obsoletes:  %{_lib}spectreOkular1 < 2:4.0.74-1
+Obsoletes:  %{_lib}kdegraphics0-kghostview < 1:3.5.10-3
 
 %description -n %libokularcore
 KDE 4 core library.
@@ -165,15 +177,21 @@ kamera ioslave
 %package -n okular
 Summary: A universal document viewer
 Group: Graphical desktop/KDE
+
 Requires: %name-core = %epoch:%version
+
 Obsoletes: %name-okular < 2:3.93.0-0.714385.1
 Obsoletes: kdegraphics4-kpdf < 2:3.93.0-0.714385.1
 Obsoletes: kdegraphics4-kdvi < 2:3.93.0-0.714385.1
 Obsoletes: kde4-kghostview < 2:3.95.2-0.734790.2
-Conflicts: %name-devel < 2:3.95.2-0.734790.2
 Obsoletes: kde4-okular < 2:4.0.68
+Obsoletes: kdegraphics-kdvi < 1:3.5.10-3
+Obsoletes: kdegraphics-kghostview < 1:3.5.10-3
+Obsoletes: kdegraphics-kpdf < 1:3.5.10-3
+
 Provides: kde4-okular = %epoch:%version
-Conflicts: kdegraphics-common < 1:3.5.9-9mdv
+
+Conflicts: %name-devel < 2:3.95.2-0.734790.2
 
 %description -n okular
 Okular is a universal document viewer based on KPDF for KDE 4.
@@ -397,12 +415,14 @@ KIPI image framework.
 #-----------------------------------------------------------------------------
 
 %package -n kcolorchooser
-Summary: KDE Color Chooser
-Group: Graphical desktop/KDE
-Requires: %name-core = %epoch:%version
+Summary:   KDE Color Chooser
+Group:     Graphical desktop/KDE
+Requires:  %name-core = %epoch:%version
 Obsoletes: kdegraphics4-kcolorchooser < 2:3.93.0-0.714385.1
 Obsoletes: kde4-kcolorchooser < 2:4.0.68
-Provides: kde4-kcolorchooser = %epoch:%version
+Obsoletes: kdegraphics-kcolorchooser < 1:3.5.10-3
+
+Provides:  kde4-kcolorchooser = %epoch:%version
 
 %description -n kcolorchooser
 KDE Color Chooser
@@ -448,6 +468,8 @@ Group: Graphical desktop/KDE
 Requires: %name-core = %epoch:%version
 Obsoletes: %name-kolourpaint < 2:3.93.0-0.714385.1
 Obsoletes: kde4-kolourpaint < 2:4.0.68
+Obsoletes: kdegraphics-kolourpaint < 1:3.5.10-3
+
 Provides: kde4-kolourpaint = %epoch:%version
 
 %description -n kolourpaint
@@ -475,8 +497,11 @@ tasks like:
 Summary: KDE Screen Ruler
 Group: Graphical desktop/KDE
 Requires: %name-core = %epoch:%version
+
 Obsoletes: %name-kruler < 2:3.93.0-0.714385.1
 Obsoletes: kde4-kruler < 2:4.0.68
+Obsoletes: kdegraphics-kruler < 1:3.5.10-3
+
 Provides: kde4-kruler = %epoch:%version
 
 %description -n kruler
@@ -495,10 +520,14 @@ A screen ruler for the K Desktop Environment
 %package -n ksnapshot
 Summary: KDE Screenshot Utility
 Group: Graphical desktop/KDE
-Requires: %name-core = %epoch:%version
+
+Requires:  %name-core = %epoch:%version
+
 Obsoletes: %name-ksnapshot < 2:3.93.0-0.714385.1
 Obsoletes: kde4-ksnapshot < 2:4.0.68
-Provides: kde4-ksnapshot = %epoch:%version
+Obsoletes: kdegraphics-ksnapshot < 1:3.5.10-3
+
+Provides:  kde4-ksnapshot = %epoch:%version
 
 %description -n ksnapshot
 KDE Screenshot Utility
@@ -516,7 +545,7 @@ KDE Screenshot Utility
 %package devel
 Summary: Devel stuff for kdegraphics
 Group: Development/KDE and Qt
-Requires: kde4-macros
+
 Requires: kdelibs4-devel
 Requires: %libokularcore = %epoch:%version-%release
 Requires: %libgwenviewlib = %epoch:%version-%release
@@ -524,6 +553,7 @@ Requires: %libksane  = %epoch:%version-%release
 Requires: %libkipi  = %epoch:%version-%release
 Requires: %libkdcraw  = %epoch:%version-%release
 Requires: %libkexiv2  = %epoch:%version-%release
+
 Obsoletes: %{_lib}kdegraphics40-ksvg-devel < 2:3.93.0-0.714385.1
 Obsoletes: %{_lib}kdegraphics40-kview-devel < 2:3.93.0-0.714385.1
 Obsoletes: %{_lib}kdegraphics40-kooka-devel < 2:3.93.0-0.714385.1
@@ -534,7 +564,14 @@ Obsoletes: %{_lib}kdegraphics40-okular-devel < 2:3.93.0-0.714385.1
 Obsoletes: %{_lib}kexiv-devel
 Obsoletes: %{_lib}kdcraw-devel
 Obsoletes: %{_lib}kipi-devel
+Obsoletes: %{_lib}kdegraphics0-common-devel < 1:3.5.10-3
+Obsoletes: %{_lib}kdegraphics0-kghostview-devel < 1:3.5.10-3
+Obsoletes: %{_lib}kdegraphics0-kview-devel < 1:3.5.10-3
+Obsoletes: %{_lib}kdegraphics0-kooka-devel < 1:3.5.10-3
+Obsoletes: %{_lib}kdegraphics0-ksvg-devel < 1:3.5.10-3
+
 Conflicts: kde4-okular < 2:3.95.2-0.734790.2
+
 Provides: libkexiv-devel = %epoch:%version-%release
 Provides: libkdcraw-devel = %epoch:%version-%release
 Provides: libkipi-devel = %epoch:%version-%release
