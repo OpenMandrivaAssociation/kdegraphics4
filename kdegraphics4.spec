@@ -35,17 +35,15 @@ BuildRequires: libexiv-devel
 BuildRequires: qimageblitz-devel
 BuildRequires: ebook-tools-devel
 BuildRequires: lcms-devel
-BuildRequires: kipi-plugins-devel
-Requires:      %name-core
-Requires:      ksnapshot
-Obsoletes:     kde4-kfax < 2:3.93.0-0.714385.1
-Requires:      kcolorchooser
-Requires:      okular
-Requires:      gwenview
-Requires:      kruler
-Requires:      kolourpaint
-Requires:      kgamma
-
+Requires: %name-core
+Requires: ksnapshot
+Requires: kcolorchooser
+Requires: okular
+Requires: gwenview
+Requires: kruler
+Requires: kolourpaint
+Requires: kgamma
+Obsoletes: kde4-kfax < 2:3.93.0-0.714385.1
 Obsoletes:     kdegraphics < 1:3.5.10-3
 
 %description
