@@ -1,7 +1,7 @@
 Name:          kdegraphics4
 Summary:       K Desktop Environment
 Version: 4.2.0
-Release: %mkrel 1
+Release: %mkrel 2
 Epoch:         2
 Group:         Graphical desktop/KDE
 License:       GPL
@@ -285,7 +285,6 @@ Common files for the kipi library
 Summary: %{name} library
 Group: System/Libraries
 Requires: kipi-common
-Obsoletes:%{_lib}kipi5 
 
 %description -n %{libkipi}
 %{name} library.
