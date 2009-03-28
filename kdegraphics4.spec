@@ -12,7 +12,7 @@ Patch1:        kdegraphics-4.2.1-bump-gwenview-version.patch
 Buildroot:     %_tmppath/%name-%version-%release-root
 BuildRequires: jpeg-devel 
 BuildRequires: png-devel 
-BuildRequires: libimlib-devel 
+BuildRequires: libimlib2-devel 
 BuildRequires: libtiff-devel
 BuildRequires: zlib-devel 
 BuildRequires: bzip2-devel
