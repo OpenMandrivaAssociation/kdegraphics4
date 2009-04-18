@@ -1,7 +1,7 @@
 Name:          kdegraphics4
 Summary:       K Desktop Environment
 Version:       4.2.2
-Release:       %mkrel 4
+Release:       %mkrel 5
 Epoch:         2
 Group:         Graphical desktop/KDE
 License:       GPL
@@ -87,6 +87,7 @@ Obsoletes: kdegraphics-kview < 1:3.5.10-3
 Obsoletes: %{_lib}kdegraphics0-kview < 1:3.5.10-3
 Obsoletes: kdegraphics-ksvg < 1:3.5.10-3
 Obsoletes: %{_lib}kdegraphics0-ksvg < 1:3.5.10-3
+Obsoletes: kdegraphics-kuickshow < 1:3.5.10-3
 
 %description core
 Common files for kdegraphics
