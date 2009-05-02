@@ -1,17 +1,16 @@
+%define kderevision svn954171
 Name:          kdegraphics4
 Summary:       K Desktop Environment
-Version:       4.2.2
-Release:       %mkrel 6
+Version:       4.2.70
+Release:       %mkrel 0.%kderevision.1
 Epoch:         2
 Group:         Graphical desktop/KDE
 License:       GPL
 URL:           http://www.kde.org
-Source:	       ftp://ftp.kde.org/pub/kde/stable/%version/src/kdegraphics-%version.tar.bz2
+Source:	       ftp://ftp.kde.org/pub/kde/stable/%version/src/kdegraphics-%version.%kderevision.tar.bz2
 Patch0:        kdegraphics-4.1.80-fix-desktop-files.patch
 Patch1:        kdegraphics-4.2.2-workaround-kolorpaintcrash.patch
 Patch2:        kdegraphics-4.2.2-ksnapshot-unique.patch
-Patch100:      kdegraphics-backport-4.2.3-rev951463.patch
-Patch200:      kdegraphics-backport-4.3.0-rev946120.patch
 Buildroot:     %_tmppath/%name-%version-%release-root
 BuildRequires: jpeg-devel 
 BuildRequires: png-devel 
@@ -213,6 +212,7 @@ the supported formats and the features supported in each of them.
 %_kde_libdir/kde4/okularGenerator_*
 %_kde_libdir/kde4/okularpart.so
 %_kde_libdir/kde4/kio_msits.so
+%_kde_libdir/kde4/mobithumbnail.so
 %_kde_datadir/applications/kde4/okular*
 %_kde_appsdir/okular
 %_kde_datadir/config.kcfg/okular.kcfg
@@ -221,6 +221,7 @@ the supported formats and the features supported in each of them.
 %_kde_datadir/kde4/services/libokularGenerator_*
 %_kde_datadir/kde4/services/okular*
 %_kde_datadir/kde4/services/msits*
+%_kde_datadir/kde4/services/mobithumbnail.desktop
 %_kde_datadir/kde4/servicetypes/okularGenerator.desktop
 %_kde_docdir/HTML/en/okular
 %_kde_iconsdir/*/*/*/okular.*
@@ -592,12 +593,10 @@ based on kdegraphics.
 #----------------------------------------------------------------------
 
 %prep
-%setup -q -n kdegraphics-%version
-%patch0 -p1
+%setup -q -n kdegraphics-%version.%kderevision
+#%patch0 -p1
 %patch1 -p1
 %patch2 -p0
-%patch100 -p0
-%patch200 -p0
 %build
 %cmake_kde4
 
