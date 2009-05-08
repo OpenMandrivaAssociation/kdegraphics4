@@ -213,6 +213,7 @@ the supported formats and the features supported in each of them.
 %_kde_libdir/kde4/okularpart.so
 %_kde_libdir/kde4/kio_msits.so
 %_kde_libdir/kde4/mobithumbnail.so
+%_kde_libdir/kde4/rawthumbnail.so
 %_kde_datadir/applications/kde4/okular*
 %_kde_appsdir/okular
 %_kde_datadir/config.kcfg/okular.kcfg
@@ -222,6 +223,7 @@ the supported formats and the features supported in each of them.
 %_kde_datadir/kde4/services/okular*
 %_kde_datadir/kde4/services/msits*
 %_kde_datadir/kde4/services/mobithumbnail.desktop
+%_kde_datadir/kde4/services/rawthumbnail.desktop
 %_kde_datadir/kde4/servicetypes/okularGenerator.desktop
 %_kde_docdir/HTML/en/okular
 %_kde_iconsdir/*/*/*/okular.*
