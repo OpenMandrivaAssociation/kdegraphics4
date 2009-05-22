@@ -1,13 +1,23 @@
-%define kderevision svn961800
+%define branch 1
+%{?_branch: %{expand: %%global branch 1}}
+
+%if %branch
+%define kderevision svn969966
+%endif
+
 Name:          kdegraphics4
 Summary:       K Desktop Environment
-Version:       4.2.85
-Release:       %mkrel 2
+Version:       4.2.87
+Release:       %mkrel 1
 Epoch:         2
 Group:         Graphical desktop/KDE
 License:       GPL
 URL:           http://www.kde.org
+%if %branch
+Source:        ftp://ftp.kde.org/pub/kde/stable/%version/src/kdegraphics-%version%kderevision.tar.bz2
+%else
 Source:	       ftp://ftp.kde.org/pub/kde/stable/%version/src/kdegraphics-%version.tar.bz2
+%endif
 Patch0:        kdegraphics-4.1.80-fix-desktop-files.patch
 Patch1:        kdegraphics-4.2.2-workaround-kolorpaintcrash.patch
 Patch2:        kdegraphics-4.2.2-ksnapshot-unique.patch
@@ -595,7 +605,11 @@ based on kdegraphics.
 #----------------------------------------------------------------------
 
 %prep
+%if %branch
+%setup -q -n kdegraphics-%version%kderevision
+%else
 %setup -q -n kdegraphics-%version
+%endif
 #%patch0 -p1
 %patch1 -p1
 #%patch2 -p0
