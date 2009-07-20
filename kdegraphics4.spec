@@ -48,6 +48,7 @@ BuildRequires: libexiv-devel
 BuildRequires: qimageblitz-devel
 BuildRequires: ebook-tools-devel
 BuildRequires: lcms-devel
+BuildRequires: qca2-devel
 Requires: %name-core
 Requires: ksnapshot
 Requires: kcolorchooser
