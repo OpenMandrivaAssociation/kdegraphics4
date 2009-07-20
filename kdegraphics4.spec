@@ -135,7 +135,7 @@ Obsoletes:  %{_lib}spectreOkular1 < 2:4.0.74-1
 %description -n %libokularcore
 KDE 4 core library.
 
-files -n %libokularcore
+%files -n %libokularcore
 %defattr(-,root,root)
 %_kde_libdir/libokularcore.so.%{okularcore_major}*
 
