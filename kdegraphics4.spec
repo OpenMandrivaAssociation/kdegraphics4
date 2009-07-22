@@ -1,26 +1,13 @@
-%define branch 0
-%{?_branch: %{expand: %%global branch 1}}
-
-%if %branch
-%define kderevision svn973768
-%endif
-
-Name:          kdegraphics4
-Summary:       K Desktop Environment
-Version:       4.2.96
-Release:       %mkrel 1
-Epoch:         2
-Group:         Graphical desktop/KDE
-License:       GPL
-URL:           http://www.kde.org
-%if %branch
-Source:        ftp://ftp.kde.org/pub/kde/stable/%version/src/kdegraphics-%version%kderevision.tar.bz2
-%else
-Source:	       ftp://ftp.kde.org/pub/kde/stable/%version/src/kdegraphics-%version.tar.bz2
-%endif
-Patch0:        kdegraphics-4.1.80-fix-desktop-files.patch
-Patch1:        kdegraphics-4.2.2-workaround-kolorpaintcrash.patch
-Patch2:        kdegraphics-4.2.2-ksnapshot-unique.patch
+Name: kdegraphics4
+Summary: K Desktop Environment
+Version: 4.2.98
+Release: %mkrel 1
+Epoch: 2
+Group: Graphical desktop/KDE
+License: GPL
+URL: http://www.kde.org
+Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdegraphics-%version.tar.bz2
+Patch0: kdegraphics-4.2.2-workaround-kolorpaintcrash.patch
 Buildroot:     %_tmppath/%name-%version-%release-root
 BuildRequires: jpeg-devel 
 BuildRequires: png-devel 
@@ -29,7 +16,8 @@ BuildRequires: libtiff-devel
 BuildRequires: zlib-devel 
 BuildRequires: bzip2-devel
 BuildRequires: gettext texinfo
-BuildRequires: kdelibs4-devel
+BuildRequires: kdelibs4-devel >= 2:4.2.98
+BuildRequires: kdelibs4-experimental-devel >= 4.2.98
 BuildRequires: X11-devel 
 BuildRequires: freetype2-devel
 BuildRequires: openssl-devel 
@@ -75,7 +63,7 @@ kdegraphics is a collection of graphic oriented applications
 %package   core
 Summary:   Core files for kdegraphics
 Group:     Graphical desktop/KDE	
-Requires:  kdebase4-runtime
+Requires:  oxygen-icon-theme
 Requires:  libgphoto-hotplug
 Obsoletes: kdegraphics4-common < 2:3.93.0-0.714385.1
 Obsoletes: kdegraphics4-kview < 2:3.93.0-0.714385.1
@@ -560,15 +548,14 @@ KDE Screenshot Utility
 %package devel
 Summary: Devel stuff for kdegraphics
 Group: Development/KDE and Qt
-
-Requires: kdelibs4-devel
+Requires: kdelibs4-devel >= 2:4.2.98
+Requires: kdelibs4-experimental-devel >= 4.2.98
 Requires: %libokularcore = %epoch:%version-%release
 Requires: %libgwenviewlib = %epoch:%version-%release
 Requires: %libksane  = %epoch:%version-%release
 Requires: %libkipi  = %epoch:%version-%release
 Requires: %libkdcraw  = %epoch:%version-%release
 Requires: %libkexiv2  = %epoch:%version-%release
-
 Obsoletes: %{_lib}kdegraphics40-ksvg-devel < 2:3.93.0-0.714385.1
 Obsoletes: %{_lib}kdegraphics40-kview-devel < 2:3.93.0-0.714385.1
 Obsoletes: %{_lib}kdegraphics40-kooka-devel < 2:3.93.0-0.714385.1
@@ -606,14 +593,9 @@ based on kdegraphics.
 #----------------------------------------------------------------------
 
 %prep
-%if %branch
-%setup -q -n kdegraphics-%version%kderevision
-%else
 %setup -q -n kdegraphics-%version
-%endif
-#%patch0 -p1
-%patch1 -p1
-#%patch2 -p0
+%patch0 -p1
+
 %build
 %cmake_kde4
 
@@ -621,9 +603,8 @@ based on kdegraphics.
 
 %install
 rm -fr %buildroot
-cd build
 
-make DESTDIR=%buildroot install
+%makeinstall_std -C build
 
 %clean
 rm -fr %buildroot
