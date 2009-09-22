@@ -1,7 +1,7 @@
 Name: kdegraphics4
 Summary: K Desktop Environment
 Version: 4.3.1
-Release: %mkrel 3
+Release: %mkrel 4
 Epoch: 2
 Group: Graphical desktop/KDE
 License: GPL
@@ -200,7 +200,7 @@ Obsoletes: kdegraphics3-kdvi < 1:3.5.10-5
 Obsoletes: kdegraphics3-kghostview < 1:3.5.10-5
 Obsoletes: kdegraphics3-kpdf < 1:3.5.10-5
 %endif
-Suggests:   xpdf-common
+Suggests: poppler-data
 Provides: kde4-okular = %epoch:%version
 Conflicts: %name-devel < 2:3.95.2-0.734790.2
 
