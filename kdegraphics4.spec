@@ -1,12 +1,14 @@
+%define kde_snapshot svn1040395
+
 Name: kdegraphics4
 Summary: K Desktop Environment
-Version: 4.3.2
+Version: 4.3.73
 Release: %mkrel 1
 Epoch: 2
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
-Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdegraphics-%version.tar.bz2
+Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdegraphics-%version%kde_snapshot.tar.bz2
 Patch0: kdegraphics-4.2.2-workaround-kolorpaintcrash.patch
 Buildroot:     %_tmppath/%name-%version-%release-root
 BuildRequires: jpeg-devel 
@@ -17,7 +19,6 @@ BuildRequires: zlib-devel
 BuildRequires: bzip2-devel
 BuildRequires: gettext texinfo
 BuildRequires: kdelibs4-devel >= 2:4.2.98
-BuildRequires: kdelibs4-experimental-devel >= 4.2.98
 BuildRequires: X11-devel 
 BuildRequires: freetype2-devel
 BuildRequires: openssl-devel 
@@ -171,11 +172,11 @@ kamera ioslave
 
 %files -n kamera
 %defattr(-,root,root)
-%dir %_kde_docdir/HTML/en/kcontrol/kamera
-%doc %_kde_docdir/HTML/en/kcontrol/kamera/*
+%doc %_kde_docdir/HTML/en/kcontrol/kamera
 %_kde_libdir/kde4/*_kamera.*
 %_kde_datadir/kde4/services/camera*
 %_kde_datadir/kde4/services/kamera*
+%_kde_appsdir/solid/actions/solid_camera.desktop
 
 #-----------------------------------------------------------------------------
 
@@ -254,7 +255,7 @@ Common files for the kdcraw library
 
 #------------------------------------------------	
 
-%define	kdcraw_major 7
+%define	kdcraw_major 8
 %define	libkdcraw %mklibname kdcraw %kdcraw_major
 
 %package -n %{libkdcraw}
@@ -264,13 +265,6 @@ Requires: libkdcraw-common
 
 %description -n %{libkdcraw}
 %{name} library.
-
-%if %mdkversion < 200900
-%post -n %{libkdcraw} -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %{libkdcraw} -p /sbin/ldconfig
-%endif
 
 %files -n %{libkdcraw}
 %defattr(0644, root, root, 0755)
@@ -295,7 +289,7 @@ Common files for the kipi library
 
 #------------------------------------------------	
 
-%define	kipi_major 6
+%define	kipi_major 7
 %define	libkipi %mklibname kipi %kipi_major
 
 %package -n %{libkipi}
@@ -306,20 +300,13 @@ Requires: kipi-common
 %description -n %{libkipi}
 %{name} library.
 
-%if %mdkversion < 200900
-%post -n %{libkipi} -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %{libkipi} -p /sbin/ldconfig
-%endif
-
 %files -n %{libkipi}
 %defattr(0644, root, root, 0755)
 %{_kde_libdir}/libkipi.so.%{kipi_major}*
 
 #------------------------------------------------	
 
-%define kexiv2_major 7
+%define kexiv2_major 8
 %define	libkexiv2 %mklibname kexiv2_ %kexiv2_major
 
 %package -n %{libkexiv2}
@@ -330,16 +317,10 @@ Obsoletes: %mklibname kexiv 6
 %description -n %{libkexiv2}
 %{name} library.
 
-%if %mdkversion < 200900
-%post -n %{libkexiv2} -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %{libkexiv2} -p /sbin/ldconfig
-%endif
-
 %files -n %{libkexiv2}
 %defattr(0644, root, root, 0755)
 %{_kde_libdir}/libkexiv2.so.%{kexiv2_major}*
+%_kde_appsdir/libkexiv2/data/topicset.iptc-subjectcode.xml
 
 #------------------------------------------------	
 
@@ -356,13 +337,6 @@ Obsoletes:  %{_lib}gwenviewlib1 < 2:4.0.82-3
 %description -n %libgwenviewlib
 KDE 4 core library.
 
-%if %mdkversion < 200900
-%post -n %libgwenviewlib -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %libgwenviewlib -p /sbin/ldconfig
-%endif
-
 %files -n %libgwenviewlib
 %defattr(-,root,root)
 %_kde_libdir/libgwenviewlib.so.%{gwenviewlib_major}*
@@ -378,13 +352,6 @@ Group:      System/Libraries
 
 %description -n %libksane
 KDE 4 core library.
-
-%if %mdkversion < 200900
-%post -n %libksane -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %libksane -p /sbin/ldconfig
-%endif
 
 %files -n %libksane
 %defattr(-,root,root)
@@ -416,12 +383,14 @@ KIPI image framework.
 %files -n gwenview
 %defattr(-,root,root)
 %_kde_bindir/gwenview
+%_kde_bindir/gwenview_importer
 %_kde_libdir/kde4/gvpart.so
 %_kde_appsdir/gvpart
 %_kde_appsdir/gwenview
 %_kde_datadir/kde4/services/gvpart.desktop
 %_kde_datadir/kde4/services/ServiceMenus/slideshow.desktop
 %_kde_datadir/applications/kde4/gwenview.desktop
+%_kde_appsdir/solid/actions/gwenview_importer.desktop
 %_kde_iconsdir/*/*/*/gwenview*
 %_kde_docdir/*/*/gwenview
 
@@ -569,7 +538,6 @@ KDE Screenshot Utility
 Summary: Devel stuff for kdegraphics
 Group: Development/KDE and Qt
 Requires: kdelibs4-devel >= 2:4.2.98
-Requires: kdelibs4-experimental-devel >= 4.2.98
 Requires: %libokularcore = %epoch:%version-%release
 Requires: %libgwenviewlib = %epoch:%version-%release
 Requires: %libksane  = %epoch:%version-%release
@@ -606,7 +574,7 @@ based on kdegraphics.
 #----------------------------------------------------------------------
 
 %prep
-%setup -q -n kdegraphics-%version
+%setup -q -n kdegraphics-%version%kde_snapshot
 %patch0 -p1
 
 %build
