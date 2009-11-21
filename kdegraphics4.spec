@@ -1,9 +1,9 @@
-%define kde_snapshot svn1040395
+%define kde_snapshot svn1048496
 
 Name: kdegraphics4
 Summary: K Desktop Environment
-Version: 4.3.73
-Release: %mkrel 3
+Version: 4.3.75
+Release: %mkrel 1
 Epoch: 2
 Group: Graphical desktop/KDE
 License: GPL
@@ -13,8 +13,8 @@ Patch0: kdegraphics-4.2.2-workaround-kolorpaintcrash.patch
 Buildroot:     %_tmppath/%name-%version-%release-root
 BuildRequires: jpeg-devel 
 BuildRequires: png-devel 
-BuildRequires: libimlib2-devel 
-BuildRequires: libtiff-devel
+BuildRequires: imlib2-devel 
+BuildRequires: tiff-devel
 BuildRequires: zlib-devel 
 BuildRequires: bzip2-devel
 BuildRequires: gettext texinfo
@@ -31,7 +31,7 @@ BuildRequires: fontconfig-devel
 BuildRequires: libpoppler-qt4-devel >= 0.8.0
 BuildRequires: mesaglut-devel
 BuildRequires: djvulibre-devel
-BuildRequires: libchm-devel
+BuildRequires: chmlib-devel
 BuildRequires: libgs-devel
 BuildRequires: libexiv-devel
 BuildRequires: qimageblitz-devel
@@ -153,7 +153,6 @@ kgamma color profiling
 %defattr(-,root,root)
 %_kde_datadir/kde4/services/kgamma*
 %_kde_appsdir/kgamma
-%_kde_iconsdir/*/*/*/kgamma*
 %_kde_libdir/kde4/*_kgamma.*
 %_kde_docdir/HTML/*/kgamma
 
