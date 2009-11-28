@@ -1,14 +1,24 @@
-%define kde_snapshot svn1048496
+%define branch 1
+%{?_branch: %{expand: %%global branch 1}}
+
+
+%if %branch
+%define kde_snapshot svn1053190
+%endif
 
 Name: kdegraphics4
 Summary: K Desktop Environment
-Version: 4.3.75
+Version: 4.3.77
 Release: %mkrel 1
 Epoch: 2
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
+%if %branch
 Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdegraphics-%version%kde_snapshot.tar.bz2
+%else
+Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdegraphics-%version.tar.bz2
+%endif
 Patch0: kdegraphics-4.2.2-workaround-kolorpaintcrash.patch
 Buildroot:     %_tmppath/%name-%version-%release-root
 BuildRequires: jpeg-devel 
@@ -573,7 +583,11 @@ based on kdegraphics.
 #----------------------------------------------------------------------
 
 %prep
+%if %branch
 %setup -q -n kdegraphics-%version%kde_snapshot
+%else
+%setup -q -n kdegraphics-%version
+%endif
 %patch0 -p1
 
 %build
