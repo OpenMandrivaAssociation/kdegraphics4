@@ -164,8 +164,7 @@ kgamma color profiling
 %_kde_datadir/kde4/services/kgamma*
 %_kde_appsdir/kgamma
 %_kde_libdir/kde4/*_kgamma.*
-%_kde_docdir/HTML/*/kgamma
-
+%_kde_docdir/HTML/*/kcontrol/kgamma
 #-----------------------------------------------------------------------------
 
 %package -n kamera
