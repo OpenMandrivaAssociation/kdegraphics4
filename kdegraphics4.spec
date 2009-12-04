@@ -48,6 +48,7 @@ BuildRequires: qimageblitz-devel
 BuildRequires: ebook-tools-devel
 BuildRequires: lcms-devel
 BuildRequires: qca2-devel
+BuildRequires: shared-desktop-ontologies-devel
 Requires: %name-core
 Requires: ksnapshot
 Requires: kcolorchooser
