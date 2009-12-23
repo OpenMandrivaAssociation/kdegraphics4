@@ -9,7 +9,7 @@
 Name: kdegraphics4
 Summary: K Desktop Environment
 Version: 4.3.85
-Release: %mkrel 1
+Release: %mkrel 2
 Epoch: 2
 Group: Graphical desktop/KDE
 License: GPL
@@ -549,10 +549,11 @@ Group: Development/KDE and Qt
 Requires: kdelibs4-devel >= 2:4.2.98
 Requires: %libokularcore = %epoch:%version-%release
 Requires: %libgwenviewlib = %epoch:%version-%release
-Requires: %libksane  = %epoch:%version-%release
-Requires: %libkipi  = %epoch:%version-%release
-Requires: %libkdcraw  = %epoch:%version-%release
-Requires: %libkexiv2  = %epoch:%version-%release
+Requires: %libksane = %epoch:%version-%release
+Requires: %libkipi = %epoch:%version-%release
+Requires: %libkdcraw = %epoch:%version-%release
+Requires: %libkexiv2 = %epoch:%version-%release
+Requires: %libkolourpaint_lgpl = %epoch:%version-%release
 Obsoletes: %{_lib}kdegraphics40-ksvg-devel < 2:3.93.0-0.714385.1
 Obsoletes: %{_lib}kdegraphics40-kview-devel < 2:3.93.0-0.714385.1
 Obsoletes: %{_lib}kdegraphics40-kooka-devel < 2:3.93.0-0.714385.1
