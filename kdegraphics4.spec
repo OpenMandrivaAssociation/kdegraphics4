@@ -237,7 +237,6 @@ the supported formats and the features supported in each of them.
 %_kde_appsdir/okular
 %_kde_datadir/config.kcfg/okular.kcfg
 %_kde_datadir/config.kcfg/gssettings.kcfg
-%_kde_datadir/config/okular.knsrc
 %_kde_datadir/kde4/services/libokularGenerator_*
 %_kde_datadir/kde4/services/okular*
 %_kde_datadir/kde4/services/msits*
