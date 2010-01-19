@@ -9,7 +9,7 @@
 Name: kdegraphics4
 Summary: K Desktop Environment
 Version: 4.3.90
-Release: %mkrel 2
+Release: %mkrel 3
 Epoch: 2
 Group: Graphical desktop/KDE
 License: GPL
@@ -20,6 +20,7 @@ Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdegraphics-%version%kde_s
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdegraphics-%version.tar.bz2
 %endif
 Patch0: kdegraphics-4.2.2-workaround-kolorpaintcrash.patch
+Patch1: kdegraphics-4.1.80-fix-desktop-files.patch
 Buildroot:     %_tmppath/%name-%version-%release-root
 BuildRequires: jpeg-devel 
 BuildRequires: png-devel 
@@ -589,6 +590,7 @@ based on kdegraphics.
 %setup -q -n kdegraphics-%version
 %endif
 %patch0 -p1
+%patch1 -p0
 
 %build
 %cmake_kde4
