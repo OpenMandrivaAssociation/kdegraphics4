@@ -9,7 +9,7 @@
 Name: kdegraphics4
 Summary: K Desktop Environment
 Version: 4.3.98
-Release: %mkrel 1
+Release: %mkrel 2
 Epoch: 2
 Group: Graphical desktop/KDE
 License: GPL
@@ -51,13 +51,13 @@ BuildRequires: lcms-devel
 BuildRequires: qca2-devel
 BuildRequires: shared-desktop-ontologies-devel
 Requires: %name-core
-Requires: ksnapshot
-Requires: kcolorchooser
-Requires: okular
-Requires: gwenview
-Requires: kruler
-Requires: kolourpaint
-Requires: kgamma
+Suggests: ksnapshot
+Suggests: kcolorchooser
+Suggests: okular
+Suggests: gwenview
+Suggests: kruler
+Suggests: kolourpaint
+Suggests: kgamma
 Obsoletes: kde4-kfax < 2:3.93.0-0.714385.1
 %if %mdkversion >= 200910
 Obsoletes:     kdegraphics < 1:3.5.10-3
