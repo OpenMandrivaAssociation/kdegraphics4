@@ -8,7 +8,7 @@
 
 Name: kdegraphics4
 Summary: K Desktop Environment
-Version: 4.3.98
+Version: 4.4.0
 Release: %mkrel 2
 Epoch: 2
 Group: Graphical desktop/KDE
