@@ -262,7 +262,7 @@ Common files for the kdcraw library
 
 #------------------------------------------------	
 
-%define	kdcraw_major 8
+%define	kdcraw_major 9
 %define	libkdcraw %mklibname kdcraw %kdcraw_major
 
 %package -n %{libkdcraw}
@@ -296,7 +296,7 @@ Common files for the kipi library
 
 #------------------------------------------------	
 
-%define	kipi_major 7
+%define	kipi_major 8
 %define	libkipi %mklibname kipi %kipi_major
 
 %package -n %{libkipi}
