@@ -1,25 +1,24 @@
 %define branch 1
 %{?_branch: %{expand: %%global branch 1}}
 
-
 %if %branch
-%define kde_snapshot svn1170578
+%define kde_snapshot svn1174542
 %endif
 
 Name: kdegraphics4
 Summary: K Desktop Environment
-Version: 4.5.67
+Version: 4.5.68
 Release: %mkrel 1
 Epoch: 2
 Group: Graphical desktop/KDE
 License: GPL
 URL: http://www.kde.org
 %if %branch
-Source:	ftp://ftp.kde.org/pub/kde/stable/%version/src/kdegraphics-%version%kde_snapshot.tar.bz2
+Source:	ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdegraphics-%version%kde_snapshot.tar.bz2
 %else
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdegraphics-%version.tar.bz2
 %endif
-Buildroot:     %_tmppath/%name-%version-%release-root
+Buildroot: %_tmppath/%name-%version-%release-root
 BuildRequires: jpeg-devel 
 BuildRequires: png-devel 
 BuildRequires: imlib2-devel 
@@ -58,11 +57,11 @@ Suggests: kolourpaint
 Suggests: kgamma
 Obsoletes: kde4-kfax < 2:3.93.0-0.714385.1
 %if %mdkversion >= 200910
-Obsoletes:     kdegraphics < 1:3.5.10-3
+Obsoletes: kdegraphics < 1:3.5.10-3
 %endif
 %if %mdkversion >= 200100
-Obsoletes:     kdegraphics3 < 1:3.5.10-5
-Obsoletes:     kdegraphics3-common < 1:3.5.10-5
+Obsoletes: kdegraphics3 < 1:3.5.10-5
+Obsoletes: kdegraphics3-common < 1:3.5.10-5
 %endif
 
 %description
@@ -75,11 +74,11 @@ kdegraphics is a collection of graphic oriented applications
 
 #----------------------------------------------------------------------
 
-%package   core
-Summary:   Core files for kdegraphics
-Group:     Graphical desktop/KDE	
-Requires:  oxygen-icon-theme
-Requires:  libgphoto-hotplug
+%package core
+Summary: Core files for kdegraphics
+Group: Graphical desktop/KDE	
+Requires: oxygen-icon-theme
+Requires: libgphoto-hotplug
 Obsoletes: kdegraphics4-common < 2:3.93.0-0.714385.1
 Obsoletes: kdegraphics4-kview < 2:3.93.0-0.714385.1
 Obsoletes: kdegraphics4-kiconedit < 2:3.93.0-0.714385.1
@@ -134,11 +133,11 @@ Common files for kdegraphics
 %define libokularcore %mklibname okularcore %okularcore_major
 
 %package -n %libokularcore
-Summary:    KDE 4 core library
-Group:      System/Libraries
-Obsoletes:  %{_lib}kdegraphics40-okular < 2:3.93.0-0.714385.1
-Obsoletes:  %{_lib}kghostviewlib1 < 2:3.95.2-0.734790.2
-Obsoletes:  %{_lib}spectreOkular1 < 2:4.0.74-1
+Summary: KDE 4 core library
+Group: System/Libraries
+Obsoletes: %{_lib}kdegraphics40-okular < 2:3.93.0-0.714385.1
+Obsoletes: %{_lib}kghostviewlib1 < 2:3.95.2-0.734790.2
+Obsoletes: %{_lib}spectreOkular1 < 2:4.0.74-1
 
 %description -n %libokularcore
 KDE 4 core library.
@@ -150,11 +149,11 @@ KDE 4 core library.
 #-----------------------------------------------------------------------------
 
 %package -n kgamma
-Summary:    kgamma color profiling
-Group:      Graphical desktop/KDE
-Requires:   %name-core = %epoch:%version
-Obsoletes:  kde4-kgamma < 2:4.0.68
-Provides:   kde4-kgamma = %epoch:%version
+Summary: kgamma color profiling
+Group: Graphical desktop/KDE
+Requires: %name-core = %epoch:%version
+Obsoletes: kde4-kgamma < 2:4.0.68
+Provides: kde4-kgamma = %epoch:%version
 
 %description -n kgamma
 kgamma color profiling
@@ -313,7 +312,7 @@ Requires: kipi-common
 
 #------------------------------------------------	
 
-%define kexiv2_major 8
+%define kexiv2_major 9
 %define	libkexiv2 %mklibname kexiv2_ %kexiv2_major
 
 %package -n %{libkexiv2}
@@ -327,7 +326,7 @@ Obsoletes: %mklibname kexiv 6
 %files -n %{libkexiv2}
 %defattr(0644, root, root, 0755)
 %{_kde_libdir}/libkexiv2.so.%{kexiv2_major}*
-%_kde_appsdir/libkexiv2/data/topicset.iptc-subjectcode.xml
+%{_kde_appsdir}/libkexiv2/data/topicset.iptc-subjectcode.xml
 
 #------------------------------------------------	
 
@@ -335,11 +334,11 @@ Obsoletes: %mklibname kexiv 6
 %define libgwenviewlib %mklibname gwenviewlib %gwenviewlib_major
 
 %package -n %libgwenviewlib
-Summary:    KDE 4 core library
-Group:      System/Libraries
-Obsoletes:  %{_lib}gwenview1 < 1.4.2-9
+Summary: KDE 4 core library
+Group: System/Libraries
+Obsoletes: %{_lib}gwenview1 < 1.4.2-9
 # (Anssi 06/2008) Package had wrong major:
-Obsoletes:  %{_lib}gwenviewlib1 < 2:4.0.82-3 
+Obsoletes: %{_lib}gwenviewlib1 < 2:4.0.82-3 
 
 %description -n %libgwenviewlib
 KDE 4 core library.
@@ -354,8 +353,8 @@ KDE 4 core library.
 %define libksane %mklibname ksane %ksane_major
 
 %package -n %libksane
-Summary:    KDE 4 core library
-Group:      System/Libraries
+Summary: KDE 4 core library
+Group: System/Libraries
 
 %description -n %libksane
 KDE 4 core library.
@@ -367,12 +366,12 @@ KDE 4 core library.
 #-----------------------------------------------------------------------------
 
 %package -n gwenview
-Summary:    Fast and easy to use image viewer for KDE
-Group:      Graphical desktop/KDE
-Requires:   %name-core = %epoch:%version
-Obsoletes:  %name-gwenview < 2:3.93.0-0.714385.1
-Obsoletes:  kde4-gwenview < 2:4.0.68
-Provides:   kde4-gwenview = %epoch:%version
+Summary: Fast and easy to use image viewer for KDE
+Group: Graphical desktop/KDE
+Requires: %name-core = %epoch:%version
+Obsoletes: %name-gwenview < 2:3.93.0-0.714385.1
+Obsoletes: kde4-gwenview < 2:4.0.68
+Provides: kde4-gwenview = %epoch:%version
 
 %description -n gwenview
 Gwenview is a fast and easy to use image viewer/browser for KDE.
@@ -398,15 +397,16 @@ KIPI image framework.
 %_kde_datadir/kde4/services/ServiceMenus/slideshow.desktop
 %_kde_datadir/applications/kde4/gwenview.desktop
 %_kde_appsdir/solid/actions/gwenview_importer.desktop
+%_kde_appsdir/solid/actions/gwenview_importer_camera.desktop
 %_kde_iconsdir/*/*/*/gwenview*
 %_kde_docdir/*/*/gwenview
 
 #-----------------------------------------------------------------------------
 
 %package -n kcolorchooser
-Summary:   KDE Color Chooser
-Group:     Graphical desktop/KDE
-Requires:  %name-core = %epoch:%version
+Summary: KDE Color Chooser
+Group: Graphical desktop/KDE
+Requires: %name-core = %epoch:%version
 Obsoletes: kdegraphics4-kcolorchooser < 2:3.93.0-0.714385.1
 Obsoletes: kde4-kcolorchooser < 2:4.0.68
 %if %mdkversion >= 200910
@@ -415,7 +415,7 @@ Obsoletes: kdegraphics-kcolorchooser < 1:3.5.10-3
 %if %mdkversion >= 200100
 Obsoletes: kdegraphics3-kcolorchooser < 1:3.5.10-5
 %endif
-Provides:  kde4-kcolorchooser = %epoch:%version
+Provides: kde4-kcolorchooser = %epoch:%version
 
 %description -n kcolorchooser
 KDE Color Chooser
@@ -467,7 +467,7 @@ Provides: kde4-kolourpaint = %epoch:%version
 KolourPaint is a free, easy-to-use paint program for KDE.
 
 It aims to be conceptually simple to understand; providing a level of
-functionality targeted towards the average user.  It's designed for daily
+functionality targeted towards the average user. It's designed for daily
 tasks like:
 
 * Painting - drawing diagrams and "finger painting"
@@ -516,7 +516,7 @@ A screen ruler for the K Desktop Environment
 Summary: KDE Screenshot Utility
 Group: Graphical desktop/KDE
 
-Requires:  %name-core = %epoch:%version
+Requires: %name-core = %epoch:%version
 
 Obsoletes: %name-ksnapshot < 2:3.93.0-0.714385.1
 Obsoletes: kde4-ksnapshot < 2:4.0.68
@@ -526,7 +526,7 @@ Obsoletes: kdegraphics-ksnapshot < 1:3.5.10-3
 %if %mdkversion >= 200100
 Obsoletes: kdegraphics3-ksnapshot < 1:3.5.10-5
 %endif
-Provides:  kde4-ksnapshot = %epoch:%version
+Provides: kde4-ksnapshot = %epoch:%version
 
 %description -n ksnapshot
 KDE Screenshot Utility
@@ -567,7 +567,7 @@ Provides: libkexiv-devel = %epoch:%version-%release
 Provides: libkdcraw-devel = %epoch:%version-%release
 Provides: libkipi-devel = %epoch:%version-%release
 
-%description  devel
+%description devel
 This package contains header files needed if you wish to build applications
 based on kdegraphics.
 
@@ -587,14 +587,13 @@ based on kdegraphics.
 %else
 %setup -q -n kdegraphics-%version
 %endif
+
 %build
 %cmake_kde4
-
 %make
 
 %install
 rm -fr %buildroot
-
 %makeinstall_std -C build
 
 %clean
