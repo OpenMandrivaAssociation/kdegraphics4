@@ -2,13 +2,17 @@
 %{?_branch: %{expand: %%global branch 1}}
 
 %if %branch
-%define kde_snapshot svn1174542
+%define kde_snapshot svn1183731
 %endif
 
 Name: kdegraphics4
 Summary: K Desktop Environment
-Version: 4.5.68
+Version: 4.5.71
+%if %branch
+Release: %mkrel -c %kde_snapshot 1
+%else
 Release: %mkrel 1
+%endif
 Epoch: 2
 Group: Graphical desktop/KDE
 License: GPL
@@ -575,6 +579,7 @@ based on kdegraphics.
 %defattr(-,root,root)
 %_kde_libdir/*.so
 %_kde_libdir/pkgconfig/*.pc
+%_kde_libdir/cmake/Okular/*.cmake
 %_kde_includedir/*
 %_kde_appsdir/cmake/*/*
 %_kde_datadir/dbus-1/interfaces/org.kde.ksnapshot.xml
