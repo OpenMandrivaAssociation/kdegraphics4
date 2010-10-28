@@ -2,12 +2,12 @@
 %{?_branch: %{expand: %%global branch 1}}
 
 %if %branch
-%define kde_snapshot svn1183731
+%define kde_snapshot svn1190490
 %endif
 
 Name: kdegraphics4
 Summary: K Desktop Environment
-Version: 4.5.71
+Version: 4.5.74
 %if %branch
 Release: %mkrel -c %kde_snapshot 1
 %else
@@ -23,34 +23,21 @@ Source:	ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdegraphics-%version%kde
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdegraphics-%version.tar.bz2
 %endif
 Buildroot: %_tmppath/%name-%version-%release-root
-BuildRequires: jpeg-devel 
-BuildRequires: png-devel 
-BuildRequires: imlib2-devel 
-BuildRequires: tiff-devel
-BuildRequires: zlib-devel 
-BuildRequires: bzip2-devel
-BuildRequires: gettext texinfo
-BuildRequires: kdelibs4-devel >= 2:4.2.98
-BuildRequires: X11-devel 
-BuildRequires: freetype2-devel
-BuildRequires: openssl-devel 
-BuildRequires: libsane-devel 
-BuildRequires: OpenEXR-devel
-BuildRequires: libtiff-progs
-BuildRequires: gphoto2-devel
-BuildRequires: libspectre-devel
-BuildRequires: fontconfig-devel
+BuildRequires: kdelibs4-devel >= 2:4.5.61
 BuildRequires: libpoppler-qt4-devel >= 0.8.0
-BuildRequires: mesaglut-devel
-BuildRequires: djvulibre-devel
+BuildRequires: libgomp-devel
+BuildRequires: libsane-devel
+BuildRequires: gphoto2-devel
 BuildRequires: chmlib-devel
 BuildRequires: libgs-devel
 BuildRequires: libexiv-devel
 BuildRequires: qimageblitz-devel
-BuildRequires: ebook-tools-devel
 BuildRequires: lcms-devel
 BuildRequires: qca2-devel
 BuildRequires: shared-desktop-ontologies-devel
+BuildRequires: libspectre-devel
+BuildRequires: djvulibre-devel
+BuildRequires: ebook-tools-devel
 Requires: %name-core
 Suggests: ksnapshot
 Suggests: kcolorchooser
