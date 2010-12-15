@@ -11,7 +11,7 @@ Version: 4.5.85
 %if %branch
 Release: %mkrel -c %kde_snapshot 1
 %else
-Release: %mkrel 2
+Release: %mkrel 3
 %endif
 Epoch: 2
 Group: Graphical desktop/KDE
