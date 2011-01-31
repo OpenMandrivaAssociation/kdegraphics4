@@ -117,6 +117,7 @@ Common files for kdegraphics
 %_kde_iconsdir/hicolor/16x16/actions/black-white.png
 %_kde_iconsdir/hicolor/16x16/actions/color.png
 %_kde_iconsdir/hicolor/16x16/actions/gray-scale.png
+%_kde_iconsdir/hicolor/*/actions/document-share.*
 
 #------------------------------------------------	
 
