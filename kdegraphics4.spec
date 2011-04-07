@@ -501,11 +501,6 @@ A screen ruler for the K Desktop Environment
 %_kde_docdir/HTML/en/doc/common
 %_kde_docdir/HTML/en/doc/index.cache.bz2
 %_kde_docdir/HTML/en/doc/index.docbook
-%_kde_docdir/HTML/en/doc/kruler-settings.png
-%_kde_docdir/HTML/en/doc/kruler.png
-%_kde_docdir/HTML/en/doc/preview.png
-%_kde_docdir/HTML/en/doc/send-to-menu.png
-%_kde_docdir/HTML/en/doc/window.png
 
 #-----------------------------------------------------------------------------
 
