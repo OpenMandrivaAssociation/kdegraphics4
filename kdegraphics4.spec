@@ -391,7 +391,6 @@ KIPI image framework.
 %_kde_appsdir/solid/actions/gwenview_importer.desktop
 %_kde_appsdir/solid/actions/gwenview_importer_camera.desktop
 %_kde_iconsdir/*/*/*/gwenview*
-%_kde_docdir/*/*/gwenview
 
 #-----------------------------------------------------------------------------
 
@@ -472,7 +471,6 @@ tasks like:
 %_kde_datadir/applications/kde4/kolourpaint.desktop
 %_kde_appsdir/kolourpaint
 %_kde_iconsdir/hicolor/*/apps/kolourpaint.*
-%_kde_docdir/HTML/en/kolourpaint
 
 #-----------------------------------------------------------------------------
 
@@ -500,7 +498,14 @@ A screen ruler for the K Desktop Environment
 %_kde_datadir/applications/kde4/kruler.desktop
 %_kde_appsdir/kruler
 %_kde_iconsdir/*/*/*/kruler*
-%_kde_docdir/*/*/kruler
+%_kde_docdir/HTML/en/doc/common
+%_kde_docdir/HTML/en/doc/index.cache.bz2
+%_kde_docdir/HTML/en/doc/index.docbook
+%_kde_docdir/HTML/en/doc/kruler-settings.png
+%_kde_docdir/HTML/en/doc/kruler.png
+%_kde_docdir/HTML/en/doc/preview.png
+%_kde_docdir/HTML/en/doc/send-to-menu.png
+%_kde_docdir/HTML/en/doc/window.png
 
 #-----------------------------------------------------------------------------
 
@@ -569,7 +574,7 @@ based on kdegraphics.
 %_kde_libdir/pkgconfig/*.pc
 %_kde_libdir/cmake/Okular/*.cmake
 %_kde_includedir/*
-%_kde_appsdir/cmake/*/*
+%_kde_libdir/cmake/KSane/KSaneConfig.cmake
 %_kde_datadir/dbus-1/interfaces/org.kde.ksnapshot.xml
 
 #----------------------------------------------------------------------
