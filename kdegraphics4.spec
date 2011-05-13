@@ -385,6 +385,7 @@ KIPI image framework.
 %_kde_libdir/kde4/gvpart.so
 %_kde_appsdir/gvpart
 %_kde_appsdir/gwenview
+%_kde_docdir/HTML/en/gwenview
 %_kde_datadir/kde4/services/gvpart.desktop
 %_kde_datadir/kde4/services/ServiceMenus/slideshow.desktop
 %_kde_datadir/applications/kde4/gwenview.desktop
@@ -470,6 +471,7 @@ tasks like:
 %_kde_bindir/kolourpaint
 %_kde_datadir/applications/kde4/kolourpaint.desktop
 %_kde_appsdir/kolourpaint
+%_kde_docdir/HTML/en/kolourpaint
 %_kde_iconsdir/hicolor/*/apps/kolourpaint.*
 
 #-----------------------------------------------------------------------------
