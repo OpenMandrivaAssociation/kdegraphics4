@@ -572,6 +572,7 @@ based on kdegraphics.
 %_kde_libdir/*.so
 %_kde_libdir/pkgconfig/*.pc
 %_kde_libdir/cmake/Okular/*.cmake
+%_kde_appsdir/cmake/modules/FindKSane.cmake
 %_kde_includedir/*
 %_kde_libdir/cmake/KSane/KSaneConfig.cmake
 %_kde_datadir/dbus-1/interfaces/org.kde.ksnapshot.xml
