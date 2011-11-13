@@ -11,7 +11,7 @@ Version: 4.6.4
 %if %branch
 Release: 0.%kde_snapshot.1
 %else
-Release: 3
+Release: 4
 %endif
 Epoch: 2
 Group: Graphical desktop/KDE
