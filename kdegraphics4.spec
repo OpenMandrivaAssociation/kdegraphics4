@@ -16,7 +16,7 @@ Release: 5
 Epoch: 2
 Group: Graphical desktop/KDE
 License: GPL
-URL: http://www.kde.org
+URL: https://www.kde.org
 %if %branch
 Source:	ftp://ftp.kde.org/pub/kde/unstable/%version/src/kdegraphics-%version%kde_snapshot.tar.bz2
 %else
