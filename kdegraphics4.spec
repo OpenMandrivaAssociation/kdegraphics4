@@ -29,6 +29,7 @@ Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdegraphics-%version.tar.b
 Source1: okular-0.12.4.tar.xz
 %endif
 Buildroot: %_tmppath/%name-%version-%release-root
+BuildRequires:	make
 BuildRequires: kdelibs4-devel >= 2:4.5.61
 BuildRequires: libpoppler-qt4-devel >= 0.8.0
 BuildRequires: libgomp-devel
